@@ -396,7 +396,7 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(true, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jPwfSenha,jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro,jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jPwfSenha,jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtRg, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro,jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 

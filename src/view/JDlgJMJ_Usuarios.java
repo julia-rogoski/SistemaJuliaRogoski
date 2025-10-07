@@ -49,7 +49,7 @@ public class JDlgJMJ_Usuarios extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jPwdSenha = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
-        jCboNivel = new javax.swing.JComboBox<>();
+        jCboNivel = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         jChbAtivo = new javax.swing.JCheckBox();
         jFmtCpf = new javax.swing.JFormattedTextField();
@@ -97,7 +97,7 @@ public class JDlgJMJ_Usuarios extends javax.swing.JDialog {
             }
         });
 
-        jCboNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCboNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCboNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCboNivelActionPerformed(evt);
