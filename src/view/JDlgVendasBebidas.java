@@ -4,11 +4,6 @@
  */
 package view;
 
-
-import bean.JMJ_VendasBebidas;
-
-import dao.JMJ_VendasBebidasDao;
-import javax.swing.JOptionPane;
 /**
  *
  * @author u09208193110
@@ -20,41 +15,7 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
         setTitle("Vendas de Bebidas");
         setLocationRelativeTo(null);
     }
-     public void habilitar() {
-       jTxtCodigo.setEnabled(true);
-       jTxtCodigo.setEnabled(true);
-       jTxtNomeBebida.setEnabled(true);
-       jTxtFormaPagamento.setEnabled(true);
-       jTxtTotal.setEnabled(true);
-       jTxtPrecoUnitario.setEnabled(true);
-       jTxtVolume.setEnabled(true);
-       jCboQuantidade.setEnabled(true);
-       jBtnConfirmar.setEnabled(true);
-       jBtnCancelar.setEnabled(true);
-       jBtnIncluir.setEnabled(false);
-       jBtnAlterar.setEnabled(false);
-       jBtnExcluir.setEnabled(false);
-       jBtnPesquisar.setEnabled(false);
-    }
-      public void desabilitar() {
-       jTxtCodigo.setEnabled(false);
-       jTxtCodigo.setEnabled(false);
-       jTxtNomeBebida.setEnabled(false);
-       jTxtFormaPagamento.setEnabled(false);
-       jTxtTotal.setEnabled(false);
-       jTxtPrecoUnitario.setEnabled(false);
-       jTxtVolume.setEnabled(false);
-       jCboQuantidade.setEnabled(false);
-       jBtnConfirmar.setEnabled(false);
-       jBtnCancelar.setEnabled(false);
-       jBtnIncluir.setEnabled(true);
-       jBtnAlterar.setEnabled(true);
-       jBtnExcluir.setEnabled(true);
-       jBtnPesquisar.setEnabled(true);
-       }
-    public void limpar() {
-        
-    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,31 +28,27 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
         jButton6 = new javax.swing.JButton();
         jPasswordField2 = new javax.swing.JPasswordField();
         jLabel10 = new javax.swing.JLabel();
-        jBtnIncluir = new javax.swing.JButton();
-        jBtnAlterar = new javax.swing.JButton();
-        jBtnExcluir = new javax.swing.JButton();
-        jBtnConfirmar = new javax.swing.JButton();
-        jBtnCancelar = new javax.swing.JButton();
-        jBtnPesquisar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTxtNomeBebida = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTxtPrecoUnitario = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTxtTotal1 = new javax.swing.JTextField();
+        jBtnOK = new javax.swing.JButton();
+        jBtnCancelar1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        jLabel13 = new javax.swing.JLabel();
+        jTxtQunatidade = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTxtValorUnitario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTxtFormaPagamento = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTxtCodigo = new javax.swing.JTextField();
-        jTxtVolume = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jCboQuantidade = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jTxtTotal = new javax.swing.JTextField();
-        jChbAtivo = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        jTxtDataVenda = new javax.swing.JTextField();
+        jBtnOK1 = new javax.swing.JButton();
+        jBtnCancelar = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<String>();
+        jLabel2 = new javax.swing.JLabel();
+        jTxtQunatidade1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTxtValorUnitario1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         jButton6.setText("jButton6");
 
@@ -103,94 +60,53 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
 
         jLabel10.setText("jLabel10");
 
+        jLabel12.setText("Total");
+
+        jBtnOK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnOK.setText("ok");
+        jBtnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnOKActionPerformed(evt);
+            }
+        });
+
+        jBtnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
+        jBtnCancelar1.setText("Cancelar");
+        jBtnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCancelar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Quantidade");
+
+        jLabel14.setText("Valor unitário");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
-        jBtnIncluir.setText("Incluir");
-        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnIncluirActionPerformed(evt);
-            }
-        });
+        jLabel15.setText("Total");
 
-        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar.png"))); // NOI18N
-        jBtnAlterar.setText("Alterar");
-        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnOK1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ok.png"))); // NOI18N
+        jBtnOK1.setText("ok");
+        jBtnOK1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAlterarActionPerformed(evt);
-            }
-        });
-
-        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir.png"))); // NOI18N
-        jBtnExcluir.setText("Excluir");
-        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnExcluirActionPerformed(evt);
-            }
-        });
-
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/gravar.png"))); // NOI18N
-        jBtnConfirmar.setText("Confirmar");
-        jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnConfirmarActionPerformed(evt);
+                jBtnOK1ActionPerformed(evt);
             }
         });
 
         jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
-
-        jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
-        jBtnPesquisar.setText("Pesquisar");
-        jBtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnPesquisarActionPerformed(evt);
+                jBtnCancelarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Codigo");
+        jLabel2.setText("Quantidade");
 
-        jLabel2.setText("Bebida");
+        jLabel3.setText("Valor unitário");
 
-        jLabel3.setText("Preço Unitário");
-
-        jTxtPrecoUnitario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtPrecoUnitarioActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Forma Pagamento");
-
-        jTxtFormaPagamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtFormaPagamentoActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Volume (ml)");
-
-        jTxtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodigoActionPerformed(evt);
-            }
-        });
-
-        jTxtVolume.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtVolumeActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Quantidade");
-
-        jCboQuantidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel9.setText("Total");
-
-        jChbAtivo.setText("Ativo");
-
-        jLabel11.setText("Data Venda");
+        jLabel16.setText("Produto:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,102 +117,54 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(385, 385, 385)
                         .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTxtFormaPagamento)
-                                .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTxtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                                .addComponent(jTxtNomeBebida, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jTxtVolume, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTxtPrecoUnitario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jChbAtivo)
-                            .addComponent(jCboQuantidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTxtDataVenda)
-                            .addComponent(jLabel11))))
-                .addContainerGap(43, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jBtnIncluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtnAlterar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jBtnExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBtnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnPesquisar)
-                .addGap(17, 17, 17))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTxtValorUnitario1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, 185, Short.MAX_VALUE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBtnOK1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addComponent(jBtnCancelar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel15)
+                                .addComponent(jLabel2)
+                                .addComponent(jTxtQunatidade1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                .addComponent(jTxtTotal)))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTxtNomeBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTxtPrecoUnitario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTxtFormaPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCboQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jChbAtivo)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtQunatidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTxtValorUnitario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnOK1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtnAlterar)
-                            .addComponent(jBtnExcluir)
-                            .addComponent(jBtnConfirmar)
-                            .addComponent(jBtnCancelar)
-                            .addComponent(jBtnPesquisar)
-                            .addComponent(jBtnIncluir))
-                        .addGap(34, 34, 34)
                         .addComponent(jLabel8)
                         .addGap(59, 59, 59))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -307,114 +175,29 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtPrecoUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtPrecoUnitarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtPrecoUnitarioActionPerformed
-
-    private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodigoActionPerformed
-
-    private void jTxtVolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtVolumeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtVolumeActionPerformed
-
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
-    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
+    private void jBtnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOKActionPerformed
         // TODO add your handling code here:
-        limpar();
-        habilitar();
-    }//GEN-LAST:event_jBtnIncluirActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnOKActionPerformed
 
-    private void jTxtFormaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtFormaPagamentoActionPerformed
+    private void jBtnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtFormaPagamentoActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnCancelar1ActionPerformed
 
-    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+    private void jBtnOK1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOK1ActionPerformed
         // TODO add your handling code here:
-        habilitar();
-    }//GEN-LAST:event_jBtnAlterarActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnOK1ActionPerformed
 
-    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        // habilitar();
-        int resp = JOptionPane.showConfirmDialog(null, "Confirma Exclusão ?");
-        if (resp == JOptionPane.YES_OPTION) {
-            JMJ_VendasBebidas vendasBebidas = new JMJ_VendasBebidas();
-             int codigo = Integer.parseInt(jTxtCodigo.getText());
-             vendasBebidas.setjmj_IdvendasBebidas(codigo);
-             vendasBebidas.setjmj_nomeBebida( jTxtNomeBebida.getText() );
-             vendasBebidas.setjmj_quantidade(jCboQuantidade.getSelectedIndex());
-             vendasBebidas.setjmj_data_Venda( null );
-             vendasBebidas.setjmj_precoUnitario( jTxtPrecoUnitario.getText() );
-             vendasBebidas.setjmj_FormaPagamento(jTxtFormaPagamento.getText());
-             vendasBebidas.setjmj_Volume_ml(jTxtVolume.getText());
-             vendasBebidas.setjmj_total(jTxtTotal.getText());
-             vendasBebidas.setjmj_ativo(jChbAtivo.getText());
-             if (jChbAtivo.isSelected() == true) {
-                 vendasBebidas.setjmj_ativo("S");
-             } else {
-                vendasBebidas.setjmj_ativo("N");
-             }
-
-            JMJ_VendasBebidasDao vendasBebidasDao = new JMJ_VendasBebidasDao();
-            vendasBebidasDao.delete(vendasBebidas);
-        }
-        limpar();
-    }//GEN-LAST:event_jBtnExcluirActionPerformed
-
-    private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
-         // TODO add your handling code here:
-       // habilitar();
-        String id = JOptionPane.showInputDialog(null, "Entre com o código ?");
-        int codigo = Integer.valueOf(id);
-        JMJ_VendasBebidasDao vendasBebidasDao = new JMJ_VendasBebidasDao();
-        JMJ_VendasBebidas vendasBebidas = (JMJ_VendasBebidas) vendasBebidasDao.list(codigo);
-        if (vendasBebidas == null) {
-            JOptionPane.showMessageDialog(null, "Código não existe!");
-        } else {
-            jTxtCodigo.setText(id);
-            jTxtNomeBebida.setText(vendasBebidas.getjmj_nomeBebida());
-            jCboQuantidade.getSelectedIndex();
-            jTxtDataVenda.setText(null);
-            jTxtPrecoUnitario.setText(vendasBebidas.getjmj_precoUnitario());
-            jTxtFormaPagamento.setText(vendasBebidas.getjmj_FormaPagamento());
-            jTxtVolume.setText(vendasBebidas.getjmj_Volume_ml());
-            jTxtTotal.setText(vendasBebidas.getjmj_total());
-            if (vendasBebidas.getjmj_ativo().equals("S")) {
-                jChbAtivo.setSelected(true);
-            } else {
-                jChbAtivo.setSelected(false);
-            }
-        }
-    }//GEN-LAST:event_jBtnPesquisarActionPerformed
-
-    private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
-        // TODO add your handling code here:
-        JMJ_VendasBebidas vendasBebidas = new JMJ_VendasBebidas();
-        int codigo = Integer.parseInt(jTxtCodigo.getText());
-        vendasBebidas.setjmj_IdvendasBebidas(codigo);
-        vendasBebidas.setjmj_nomeBebida( jTxtNomeBebida.getText() );
-        vendasBebidas.setjmj_quantidade(jCboQuantidade.getSelectedIndex());
-        vendasBebidas.setjmj_data_Venda(null);
-        vendasBebidas.setjmj_precoUnitario(jTxtPrecoUnitario.getText());
-        vendasBebidas.setjmj_FormaPagamento(jTxtFormaPagamento.getText());
-        vendasBebidas.setjmj_Volume_ml(jTxtVolume.getText());
-        vendasBebidas.setjmj_total(jTxtTotal.getText());
-        if (jChbAtivo.isSelected() == true) {
-            vendasBebidas.setjmj_ativo("S");
-        } else {
-            vendasBebidas.setjmj_ativo("N");
-        }
-        
-        JMJ_VendasBebidasDao vendasBebidasDao = new JMJ_VendasBebidasDao();
-        vendasBebidasDao.insert(vendasBebidas);
-        limpar();
-        desabilitar();
-    }//GEN-LAST:event_jBtnConfirmarActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -490,33 +273,29 @@ public class JDlgVendasBebidas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAlterar;
     private javax.swing.JButton jBtnCancelar;
-    private javax.swing.JButton jBtnConfirmar;
-    private javax.swing.JButton jBtnExcluir;
-    private javax.swing.JButton jBtnIncluir;
-    private javax.swing.JButton jBtnPesquisar;
+    private javax.swing.JButton jBtnCancelar1;
+    private javax.swing.JButton jBtnOK;
+    private javax.swing.JButton jBtnOK1;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jCboQuantidade;
-    private javax.swing.JCheckBox jChbAtivo;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTxtCodigo;
-    private javax.swing.JTextField jTxtDataVenda;
-    private javax.swing.JTextField jTxtFormaPagamento;
-    private javax.swing.JTextField jTxtNomeBebida;
-    private javax.swing.JTextField jTxtPrecoUnitario;
+    private javax.swing.JTextField jTxtQunatidade;
+    private javax.swing.JTextField jTxtQunatidade1;
     private javax.swing.JTextField jTxtTotal;
-    private javax.swing.JTextField jTxtVolume;
+    private javax.swing.JTextField jTxtTotal1;
+    private javax.swing.JTextField jTxtValorUnitario;
+    private javax.swing.JTextField jTxtValorUnitario1;
     // End of variables declaration//GEN-END:variables
 }
