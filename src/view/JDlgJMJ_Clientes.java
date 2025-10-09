@@ -7,7 +7,7 @@ package view;
 
 
 import tools.Util;
-import view_pesquisar.jDlgClientesPesquisar;
+import view_pesquisar.JDlg_JmjClientesPesquisar;
 
 /**
  *
@@ -427,7 +427,7 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        jDlgClientesPesquisar jDlgClientesPesquisar = new jDlgClientesPesquisar(null , true);
+        JDlg_JmjClientesPesquisar jDlgClientesPesquisar = new JDlg_JmjClientesPesquisar(null , true);
         jDlgClientesPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 
