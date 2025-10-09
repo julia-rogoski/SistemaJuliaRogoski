@@ -4,9 +4,13 @@
  */
 package view;
 
+import dao.ClientesDAO;
+import bean.Clientes;
+import bean.Pedidos;
+import bean.Vendedor;
+import java.util.List;
 import tools.Util;
-import view_pesquisar.jDlgJMJ_UsuariosPesquisar;
-import view_pesquisar.jDlgVendasPesquisar;
+
 
 /**
  *
