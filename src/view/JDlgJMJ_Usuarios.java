@@ -16,6 +16,7 @@ import view_pesquisar.jDlgJMJ_UsuariosPesquisar;
 
 public class JDlgJMJ_Usuarios extends javax.swing.JDialog {
     private boolean procurar = false;
+    private boolean incluir;
     /**
      * Creates new form JDlgUsuarios
      */

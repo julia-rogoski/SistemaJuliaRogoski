@@ -159,7 +159,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     private void jMnuVendasBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendasBebidasActionPerformed
         // TODO add your handling code here:
-        JDlgVendasBebidas jDlgVendasBebidas = new JDlgVendasBebidas(this, true);
+        JDlg_JmjVendasBebidas jDlgVendasBebidas = new JDlg_JmjVendasBebidas(this, true);
         jDlgVendasBebidas.setVisible(true);
     }//GEN-LAST:event_jMnuVendasBebidasActionPerformed
     
