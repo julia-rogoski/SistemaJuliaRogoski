@@ -40,8 +40,6 @@ public class JmjClientes  implements java.io.Serializable {
      private String jmjUf;
      private Date jmjDataCadastro;
      private String jmjAtivo;
-     private Set jmjVendasesForJmjFkVendedor = new HashSet(0);
-     private Set jmjVendasesForJmjFkClientes = new HashSet(0);
 
     public JmjClientes() {
     }
@@ -82,8 +80,6 @@ public class JmjClientes  implements java.io.Serializable {
        this.jmjUf = jmjUf;
        this.jmjDataCadastro = jmjDataCadastro;
        this.jmjAtivo = jmjAtivo;
-       this.jmjVendasesForJmjFkVendedor = jmjVendasesForJmjFkVendedor;
-       this.jmjVendasesForJmjFkClientes = jmjVendasesForJmjFkClientes;
     }
    
      @Id 
@@ -246,24 +242,6 @@ public class JmjClientes  implements java.io.Serializable {
     
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjClientesByJmjFkVendedor")
-    public Set getJmjVendasesForJmjFkVendedor() {
-        return this.jmjVendasesForJmjFkVendedor;
-    }
-    
-    public void setJmjVendasesForJmjFkVendedor(Set jmjVendasesForJmjFkVendedor) {
-        this.jmjVendasesForJmjFkVendedor = jmjVendasesForJmjFkVendedor;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjClientesByJmjFkClientes")
-    public Set getJmjVendasesForJmjFkClientes() {
-        return this.jmjVendasesForJmjFkClientes;
-    }
-    
-    public void setJmjVendasesForJmjFkClientes(Set jmjVendasesForJmjFkClientes) {
-        this.jmjVendasesForJmjFkClientes = jmjVendasesForJmjFkClientes;
     }
 
 

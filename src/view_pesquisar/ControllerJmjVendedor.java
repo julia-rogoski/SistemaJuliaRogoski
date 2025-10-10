@@ -54,42 +54,14 @@ public class ControllerJmjVendedor extends AbstractTableModel {
         }
         
         if (columnIndex == 4) {
-            return jmj_vendedor.getJmjDataNascimento();
-        }
-        
-        if (columnIndex == 5) {
             return jmj_vendedor.getJmjTelefone();
         }
         
-        if (columnIndex == 6) {
+        if (columnIndex == 5) {
             return jmj_vendedor.getJmjCelular();
-        }
-        
-        if (columnIndex == 7) {
-            return jmj_vendedor.getJmjCep();
-        }
-        
-        if (columnIndex == 8) {
-            return jmj_vendedor.getJmjEndereco();
-        }
-        
-        if (columnIndex == 9) {
-            return jmj_vendedor.getJmjBairro();
-        }
-        
-        if (columnIndex == 10) {
-            return jmj_vendedor.getJmjCidade();
-        }
-        
-        if (columnIndex == 11) {
-            return jmj_vendedor.getJmjUf();
-        }
-        
-         if (columnIndex == 12) {
-            return jmj_vendedor.getJmjDataEmissao();
-        }
-        
-        if (columnIndex == 13) {
+        }       
+
+        if (columnIndex == 6) {
             return jmj_vendedor.getJmjAtivo();
         }
         
@@ -111,33 +83,12 @@ public class ControllerJmjVendedor extends AbstractTableModel {
             return "Email";
         }
         if (column == 4){
-            return "Data de Nascimento";
-        }
-        if (column == 5){
             return "Telefone";
         }
-        if (column == 6){
+        if (column == 5){
             return "Celular";
         }
-        if (column == 7){
-            return "Cep";
-        }
-        if (column == 8){
-            return "Endereço";
-        }
-        if (column == 9){
-            return "Bairro";
-        }
-        if (column == 10){
-            return "Cidade";
-        }
-        if (column == 11){
-            return "Uf";
-        }
-        if (column == 12){
-            return "Data de Emissão";
-        }
-        if (column == 13){
+        if (column == 6){
             return "Ativo";
         }
         return "";

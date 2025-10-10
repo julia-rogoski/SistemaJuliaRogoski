@@ -29,7 +29,6 @@ public class JmjBebidas  implements java.io.Serializable {
      private String jmjTeorAlcoolico;
      private String jmjVolumeMl;
      private String jmjAtivo;
-     private Set jmjVendasBebidases = new HashSet(0);
 
     public JmjBebidas() {
     }
@@ -54,7 +53,6 @@ public class JmjBebidas  implements java.io.Serializable {
        this.jmjTeorAlcoolico = jmjTeorAlcoolico;
        this.jmjVolumeMl = jmjVolumeMl;
        this.jmjAtivo = jmjAtivo;
-       this.jmjVendasBebidases = jmjVendasBebidases;
     }
    
      @Id 
@@ -138,18 +136,6 @@ public class JmjBebidas  implements java.io.Serializable {
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
     }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjBebidas")
-    public Set getJmjVendasBebidases() {
-        return this.jmjVendasBebidases;
-    }
-    
-    public void setJmjVendasBebidases(Set jmjVendasBebidases) {
-        this.jmjVendasBebidases = jmjVendasBebidases;
-    }
-
-
-
 
 }
 
