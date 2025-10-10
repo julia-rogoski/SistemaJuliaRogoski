@@ -1,5 +1,5 @@
 package bean;
-// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 15:05:30 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -63,7 +63,7 @@ public class JmjClientes  implements java.io.Serializable {
         this.jmjDataCadastro = jmjDataCadastro;
         this.jmjAtivo = jmjAtivo;
     }
-    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo, Set jmjVendasesForJmjFkVendedor, Set jmjVendasesForJmjFkClientes) {
+    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo, Set jmjVendases) {
        this.jmjIdClientes = jmjIdClientes;
        this.jmjNome = jmjNome;
        this.jmjCpf = jmjCpf;
@@ -243,7 +243,6 @@ public class JmjClientes  implements java.io.Serializable {
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
     }
-
 
 
 

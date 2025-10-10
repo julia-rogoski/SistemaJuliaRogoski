@@ -1,10 +1,14 @@
 package bean;
-// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 15:05:30 by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -29,7 +33,18 @@ public class JmjVendedor  implements java.io.Serializable {
     public JmjVendedor() {
     }
 
+	
     public JmjVendedor(int jmjIdVendedor, String jmjNome, String jmjCpf, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjAtivo, String jmjApelido) {
+        this.jmjIdVendedor = jmjIdVendedor;
+        this.jmjNome = jmjNome;
+        this.jmjCpf = jmjCpf;
+        this.jmjEmail = jmjEmail;
+        this.jmjTelefone = jmjTelefone;
+        this.jmjCelular = jmjCelular;
+        this.jmjAtivo = jmjAtivo;
+        this.jmjApelido = jmjApelido;
+    }
+    public JmjVendedor(int jmjIdVendedor, String jmjNome, String jmjCpf, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjAtivo, String jmjApelido, Set jmjVendases) {
        this.jmjIdVendedor = jmjIdVendedor;
        this.jmjNome = jmjNome;
        this.jmjCpf = jmjCpf;
@@ -121,8 +136,6 @@ public class JmjVendedor  implements java.io.Serializable {
     public void setJmjApelido(String jmjApelido) {
         this.jmjApelido = jmjApelido;
     }
-
-
 
 
 }

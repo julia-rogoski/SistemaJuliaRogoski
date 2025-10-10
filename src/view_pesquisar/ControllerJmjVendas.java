@@ -6,62 +6,58 @@ import javax.swing.table.AbstractTableModel;
 
 public class ControllerJmjVendas extends AbstractTableModel {
 
-    private List<JmjVendas> lista;
+    private List lstUsuarios;
 
-    public void setList(List<JmjVendas> lista) {
-        this.lista = lista;
+    public void setList(List lstUsuarios) {
+        this.lstUsuarios = lstUsuarios;
     }
 
     public JmjVendas getBean(int rowIndex) {
-        return lista.get(rowIndex);
+        return (JmjVendas) lstUsuarios.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        if (lista == null) {
-            return 0;
-        }
-        return lista.size();
+        return lstUsuarios.size();
     }
 
     @Override
     public int getColumnCount() {
-        return 7;
+        return 4;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjVendas jmjVendas = lista.get(rowIndex);
-
+        JmjVendas usuarios = (JmjVendas) lstUsuarios.get(rowIndex);
         if (columnIndex == 0) {
-            return jmjVendas.getJmjIdVendas();
+            return usuarios.getJmjIdVendas();
+        } else if (columnIndex == 1) {
+            return usuarios.getJmjClientes();
+        } else if (columnIndex == 2) {
+            return usuarios.getJmjVendedor();
+        } else if (columnIndex == 3) {
+            return usuarios.getJmjDataVenda();
         }
-        if (columnIndex == 1) {
-            return jmjVendas.getJmjClientesByJmjFkClientes();
+        if (columnIndex == 4) {
+            return usuarios.getJmjTotalVenda();
         }
-        if (columnIndex == 2) {
-            return jmjVendas.getJmjDataVenda();
-        }
-        if (columnIndex == 3) {
-            return jmjVendas.getJmjClientesByJmjFkVendedor();
-        }
-
+        
         return "";
     }
 
     @Override
-    public String getColumnName(int column) {
-        if (column == 0) {
+    public String getColumnName(int columnIndex) {
+        if (columnIndex == 0) {
             return "Código";
-        }
-        if (column == 1) {
-            return "Cliente";
-        }
-        if (column == 2) {
-            return "Data da Venda";
-        }
-        if (column == 3) {
+        } else if (columnIndex == 1) {
+            return "Vendas";
+        } else if (columnIndex == 2) {
+            return "Clientes";
+        } else if (columnIndex == 3) {
             return "Vendedor";
+        }
+        if (columnIndex == 3) {
+            return "Data da Venda";
         }
         return "";
     }

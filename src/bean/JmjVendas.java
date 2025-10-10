@@ -1,7 +1,8 @@
 package bean;
-// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 15:05:30 by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -26,23 +27,23 @@ public class JmjVendas  implements java.io.Serializable {
 
 
      private Integer jmjIdVendas;
-     private JmjClientes jmjClientesByJmjFkVendedor;
-     private JmjClientes jmjClientesByJmjFkClientes;
-     private String jmjDataVenda;
-     private String jmjTotalVenda;
+     private JmjClientes jmjClientes;
+     private JmjVendedor jmjVendedor;
+     private Date jmjDataVenda;
+     private double jmjTotalVenda;
 
     public JmjVendas() {
     }
 
 	
-    public JmjVendas(JmjClientes jmjClientesByJmjFkVendedor, String jmjDataVenda, String jmjTotalVenda) {
-        this.jmjClientesByJmjFkVendedor = jmjClientesByJmjFkVendedor;
+    public JmjVendas(JmjVendedor jmjVendedor, Date jmjDataVenda, double jmjTotalVenda) {
+        this.jmjVendedor = jmjVendedor;
         this.jmjDataVenda = jmjDataVenda;
         this.jmjTotalVenda = jmjTotalVenda;
     }
-    public JmjVendas(JmjClientes jmjClientesByJmjFkVendedor, JmjClientes jmjClientesByJmjFkClientes, String jmjDataVenda, String jmjTotalVenda, Set jmjVendasBebidases) {
-       this.jmjClientesByJmjFkVendedor = jmjClientesByJmjFkVendedor;
-       this.jmjClientesByJmjFkClientes = jmjClientesByJmjFkClientes;
+    public JmjVendas(JmjClientes jmjClientes, JmjVendedor jmjVendedor, Date jmjDataVenda, double jmjTotalVenda, Set jmjVendasBebidases) {
+       this.jmjClientes = jmjClientes;
+       this.jmjVendedor = jmjVendedor;
        this.jmjDataVenda = jmjDataVenda;
        this.jmjTotalVenda = jmjTotalVenda;
     }
@@ -60,45 +61,44 @@ public class JmjVendas  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="jmj_fkVendedor", nullable=false)
-    public JmjClientes getJmjClientesByJmjFkVendedor() {
-        return this.jmjClientesByJmjFkVendedor;
+    @JoinColumn(name="jmj_fkClientes")
+    public JmjClientes getJmjClientes() {
+        return this.jmjClientes;
     }
     
-    public void setJmjClientesByJmjFkVendedor(JmjClientes jmjClientesByJmjFkVendedor) {
-        this.jmjClientesByJmjFkVendedor = jmjClientesByJmjFkVendedor;
+    public void setJmjClientes(JmjClientes jmjClientes) {
+        this.jmjClientes = jmjClientes;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="jmj_fkClientes")
-    public JmjClientes getJmjClientesByJmjFkClientes() {
-        return this.jmjClientesByJmjFkClientes;
+    @JoinColumn(name="jmj_fkVendedor", nullable=false)
+    public JmjVendedor getJmjVendedor() {
+        return this.jmjVendedor;
     }
     
-    public void setJmjClientesByJmjFkClientes(JmjClientes jmjClientesByJmjFkClientes) {
-        this.jmjClientesByJmjFkClientes = jmjClientesByJmjFkClientes;
+    public void setJmjVendedor(JmjVendedor jmjVendedor) {
+        this.jmjVendedor = jmjVendedor;
     }
 
     
     @Column(name="jmj_dataVenda", nullable=false, length=20)
-    public String getJmjDataVenda() {
+    public Date getJmjDataVenda() {
         return this.jmjDataVenda;
     }
     
-    public void setJmjDataVenda(String jmjDataVenda) {
+    public void setJmjDataVenda(Date jmjDataVenda) {
         this.jmjDataVenda = jmjDataVenda;
     }
 
     
     @Column(name="jmj_totalVenda", nullable=false, length=50)
-    public String getJmjTotalVenda() {
+    public double getJmjTotalVenda() {
         return this.jmjTotalVenda;
     }
     
-    public void setJmjTotalVenda(String jmjTotalVenda) {
+    public void setJmjTotalVenda(double jmjTotalVenda) {
         this.jmjTotalVenda = jmjTotalVenda;
     }
-
 
 }
 

@@ -1,8 +1,8 @@
 package bean;
-// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 15:05:30 by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,13 +27,13 @@ public class JmjVendasBebidas  implements java.io.Serializable {
      private JmjBebidas jmjBebidas;
      private JmjVendas jmjVendas;
      private int jmjQuantidade;
-     private BigDecimal jmjTotalBebidas;
-     private BigDecimal jmjDesconto;
+     private double jmjTotalBebidas;
+     private double jmjDesconto;
 
     public JmjVendasBebidas() {
     }
 
-    public JmjVendasBebidas(JmjBebidas jmjBebidas, JmjVendas jmjVendas, int jmjQuantidade, BigDecimal jmjTotalBebidas, BigDecimal jmjDesconto) {
+    public JmjVendasBebidas(JmjBebidas jmjBebidas, JmjVendas jmjVendas, int jmjQuantidade, double jmjTotalBebidas, double jmjDesconto) {
        this.jmjBebidas = jmjBebidas;
        this.jmjVendas = jmjVendas;
        this.jmjQuantidade = jmjQuantidade;
@@ -85,21 +85,21 @@ public class JmjVendasBebidas  implements java.io.Serializable {
 
     
     @Column(name="jmj_TotalBebidas", nullable=false, precision=10)
-    public BigDecimal getJmjTotalBebidas() {
+    public double getJmjTotalBebidas() {
         return this.jmjTotalBebidas;
     }
     
-    public void setJmjTotalBebidas(BigDecimal jmjTotalBebidas) {
+    public void setJmjTotalBebidas(double jmjTotalBebidas) {
         this.jmjTotalBebidas = jmjTotalBebidas;
     }
 
     
     @Column(name="jmj_desconto", nullable=false, precision=10)
-    public BigDecimal getJmjDesconto() {
+    public double getJmjDesconto() {
         return this.jmjDesconto;
     }
     
-    public void setJmjDesconto(BigDecimal jmjDesconto) {
+    public void setJmjDesconto(double jmjDesconto) {
         this.jmjDesconto = jmjDesconto;
     }
 
