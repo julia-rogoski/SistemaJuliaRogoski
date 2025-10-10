@@ -345,10 +345,8 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
 
     private void jBtnAlterarProduActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarProduActionPerformed
         // TODO add your handling code here:
-        incluir = true;
-        Util.habilitar(true, jTxtCodigo, jFmtData, jCboClientes, jCboVendedor, jTxtTotal, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-        jTxtCodigo.grabFocus();
+        JDlg_JmjVendasBebidas jDlgVendasBebidas = new JDlg_JmjVendasBebidas(null, true);
+        jDlgVendasBebidas.setVisible(true);
 
     }//GEN-LAST:event_jBtnAlterarProduActionPerformed
 
@@ -375,7 +373,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
         jTxtCodigo.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
