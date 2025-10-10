@@ -1,11 +1,15 @@
 package bean;
-// Generated 07/10/2025 14:08:07 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,7 +28,7 @@ public class JmjClientes  implements java.io.Serializable {
      private String jmjNome;
      private String jmjCpf;
      private String jmjRg;
-     private String jmjSexo;
+     private int jmjSexo;
      private Date jmjDataNascimento;
      private String jmjEmail;
      private String jmjTelefone;
@@ -36,11 +40,32 @@ public class JmjClientes  implements java.io.Serializable {
      private String jmjUf;
      private Date jmjDataCadastro;
      private String jmjAtivo;
+     private Set jmjVendasesForJmjFkVendedor = new HashSet(0);
+     private Set jmjVendasesForJmjFkClientes = new HashSet(0);
 
     public JmjClientes() {
     }
 
-    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, String jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo) {
+	
+    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo) {
+        this.jmjIdClientes = jmjIdClientes;
+        this.jmjNome = jmjNome;
+        this.jmjCpf = jmjCpf;
+        this.jmjRg = jmjRg;
+        this.jmjSexo = jmjSexo;
+        this.jmjDataNascimento = jmjDataNascimento;
+        this.jmjEmail = jmjEmail;
+        this.jmjTelefone = jmjTelefone;
+        this.jmjCelular = jmjCelular;
+        this.jmjCep = jmjCep;
+        this.jmjBairro = jmjBairro;
+        this.jmjEndereco = jmjEndereco;
+        this.jmjCidade = jmjCidade;
+        this.jmjUf = jmjUf;
+        this.jmjDataCadastro = jmjDataCadastro;
+        this.jmjAtivo = jmjAtivo;
+    }
+    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo, Set jmjVendasesForJmjFkVendedor, Set jmjVendasesForJmjFkClientes) {
        this.jmjIdClientes = jmjIdClientes;
        this.jmjNome = jmjNome;
        this.jmjCpf = jmjCpf;
@@ -57,6 +82,8 @@ public class JmjClientes  implements java.io.Serializable {
        this.jmjUf = jmjUf;
        this.jmjDataCadastro = jmjDataCadastro;
        this.jmjAtivo = jmjAtivo;
+       this.jmjVendasesForJmjFkVendedor = jmjVendasesForJmjFkVendedor;
+       this.jmjVendasesForJmjFkClientes = jmjVendasesForJmjFkClientes;
     }
    
      @Id 
@@ -102,12 +129,12 @@ public class JmjClientes  implements java.io.Serializable {
     }
 
     
-    @Column(name="jmj_sexo", nullable=false, length=10)
-    public String getJmjSexo() {
+    @Column(name="jmj_sexo", nullable=false)
+    public int getJmjSexo() {
         return this.jmjSexo;
     }
     
-    public void setJmjSexo(String jmjSexo) {
+    public void setJmjSexo(int jmjSexo) {
         this.jmjSexo = jmjSexo;
     }
 
@@ -219,6 +246,24 @@ public class JmjClientes  implements java.io.Serializable {
     
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjClientesByJmjFkVendedor")
+    public Set getJmjVendasesForJmjFkVendedor() {
+        return this.jmjVendasesForJmjFkVendedor;
+    }
+    
+    public void setJmjVendasesForJmjFkVendedor(Set jmjVendasesForJmjFkVendedor) {
+        this.jmjVendasesForJmjFkVendedor = jmjVendasesForJmjFkVendedor;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjClientesByJmjFkClientes")
+    public Set getJmjVendasesForJmjFkClientes() {
+        return this.jmjVendasesForJmjFkClientes;
+    }
+    
+    public void setJmjVendasesForJmjFkClientes(Set jmjVendasesForJmjFkClientes) {
+        this.jmjVendasesForJmjFkClientes = jmjVendasesForJmjFkClientes;
     }
 
 

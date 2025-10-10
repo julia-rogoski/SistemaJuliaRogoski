@@ -1,10 +1,14 @@
 package bean;
-// Generated 07/10/2025 14:08:07 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,17 +23,29 @@ public class JmjBebidas  implements java.io.Serializable {
 
      private int jmjIdBebidas;
      private String jmjNome;
-     private String jmjTipo;
+     private int jmjTipo;
      private String jmjPreco;
      private String jmjFabricante;
      private String jmjTeorAlcoolico;
      private String jmjVolumeMl;
      private String jmjAtivo;
+     private Set jmjVendasBebidases = new HashSet(0);
 
     public JmjBebidas() {
     }
 
-    public JmjBebidas(int jmjIdBebidas, String jmjNome, String jmjTipo, String jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo) {
+	
+    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, String jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo) {
+        this.jmjIdBebidas = jmjIdBebidas;
+        this.jmjNome = jmjNome;
+        this.jmjTipo = jmjTipo;
+        this.jmjPreco = jmjPreco;
+        this.jmjFabricante = jmjFabricante;
+        this.jmjTeorAlcoolico = jmjTeorAlcoolico;
+        this.jmjVolumeMl = jmjVolumeMl;
+        this.jmjAtivo = jmjAtivo;
+    }
+    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, String jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo, Set jmjVendasBebidases) {
        this.jmjIdBebidas = jmjIdBebidas;
        this.jmjNome = jmjNome;
        this.jmjTipo = jmjTipo;
@@ -38,6 +54,7 @@ public class JmjBebidas  implements java.io.Serializable {
        this.jmjTeorAlcoolico = jmjTeorAlcoolico;
        this.jmjVolumeMl = jmjVolumeMl;
        this.jmjAtivo = jmjAtivo;
+       this.jmjVendasBebidases = jmjVendasBebidases;
     }
    
      @Id 
@@ -63,12 +80,12 @@ public class JmjBebidas  implements java.io.Serializable {
     }
 
     
-    @Column(name="jmj_tipo", nullable=false, length=50)
-    public String getJmjTipo() {
+    @Column(name="jmj_tipo", nullable=false)
+    public int getJmjTipo() {
         return this.jmjTipo;
     }
     
-    public void setJmjTipo(String jmjTipo) {
+    public void setJmjTipo(int jmjTipo) {
         this.jmjTipo = jmjTipo;
     }
 
@@ -120,6 +137,15 @@ public class JmjBebidas  implements java.io.Serializable {
     
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="jmjBebidas")
+    public Set getJmjVendasBebidases() {
+        return this.jmjVendasBebidases;
+    }
+    
+    public void setJmjVendasBebidases(Set jmjVendasBebidases) {
+        this.jmjVendasBebidases = jmjVendasBebidases;
     }
 
 

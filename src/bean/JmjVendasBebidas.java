@@ -1,12 +1,16 @@
 package bean;
-// Generated 07/10/2025 14:08:07 by Hibernate Tools 4.3.1
+// Generated 10/10/2025 14:16:39 by Hibernate Tools 4.3.1
 
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,22 +24,20 @@ public class JmjVendasBebidas  implements java.io.Serializable {
 
 
      private Integer jmjIdVendasBebidas;
-     private Integer jmjIdVendas;
-     private Integer jmjIdBebidas;
-     private Integer jmjQuantidade;
-     private double jmjPrecoUnitario;
-     private double jmjSubtotal;
-     private double jmjDesconto;
+     private JmjBebidas jmjBebidas;
+     private JmjVendas jmjVendas;
+     private int jmjQuantidade;
+     private BigDecimal jmjTotalBebidas;
+     private BigDecimal jmjDesconto;
 
     public JmjVendasBebidas() {
     }
 
-    public JmjVendasBebidas(Integer jmjIdVendas, Integer jmjIdBebidas, Integer jmjQuantidade, double jmjPrecoUnitario, double jmjSubtotal, double jmjDesconto) {
-       this.jmjIdVendas = jmjIdVendas;
-       this.jmjIdBebidas = jmjIdBebidas;
+    public JmjVendasBebidas(JmjBebidas jmjBebidas, JmjVendas jmjVendas, int jmjQuantidade, BigDecimal jmjTotalBebidas, BigDecimal jmjDesconto) {
+       this.jmjBebidas = jmjBebidas;
+       this.jmjVendas = jmjVendas;
        this.jmjQuantidade = jmjQuantidade;
-       this.jmjPrecoUnitario = jmjPrecoUnitario;
-       this.jmjSubtotal = jmjSubtotal;
+       this.jmjTotalBebidas = jmjTotalBebidas;
        this.jmjDesconto = jmjDesconto;
     }
    
@@ -51,63 +53,53 @@ public class JmjVendasBebidas  implements java.io.Serializable {
         this.jmjIdVendasBebidas = jmjIdVendasBebidas;
     }
 
-    
-    @Column(name="jmj_idVendas")
-    public Integer getJmjIdVendas() {
-        return this.jmjIdVendas;
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="jmj_fkBebidas", nullable=false)
+    public JmjBebidas getJmjBebidas() {
+        return this.jmjBebidas;
     }
     
-    public void setJmjIdVendas(Integer jmjIdVendas) {
-        this.jmjIdVendas = jmjIdVendas;
+    public void setJmjBebidas(JmjBebidas jmjBebidas) {
+        this.jmjBebidas = jmjBebidas;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="jmj_fkVendas", nullable=false)
+    public JmjVendas getJmjVendas() {
+        return this.jmjVendas;
+    }
+    
+    public void setJmjVendas(JmjVendas jmjVendas) {
+        this.jmjVendas = jmjVendas;
     }
 
     
-    @Column(name="jmj_idBebidas")
-    public Integer getJmjIdBebidas() {
-        return this.jmjIdBebidas;
-    }
-    
-    public void setJmjIdBebidas(Integer jmjIdBebidas) {
-        this.jmjIdBebidas = jmjIdBebidas;
-    }
-
-    
-    @Column(name="jmj_quantidade")
-    public Integer getJmjQuantidade() {
+    @Column(name="jmj_quantidade", nullable=false)
+    public int getJmjQuantidade() {
         return this.jmjQuantidade;
     }
     
-    public void setJmjQuantidade(Integer jmjQuantidade) {
+    public void setJmjQuantidade(int jmjQuantidade) {
         this.jmjQuantidade = jmjQuantidade;
     }
 
     
-    @Column(name="jmj_preco_unitario", precision=10)
-    public double getJmjPrecoUnitario() {
-        return this.jmjPrecoUnitario;
+    @Column(name="jmj_TotalBebidas", nullable=false, precision=10)
+    public BigDecimal getJmjTotalBebidas() {
+        return this.jmjTotalBebidas;
     }
     
-    public void setJmjPrecoUnitario(double jmjPrecoUnitario) {
-        this.jmjPrecoUnitario = jmjPrecoUnitario;
-    }
-
-    
-    @Column(name="jmj_subtotal", precision=10)
-    public double getJmjSubtotal() {
-        return this.jmjSubtotal;
-    }
-    
-    public void setJmjSubtotal(double jmjSubtotal) {
-        this.jmjSubtotal = jmjSubtotal;
+    public void setJmjTotalBebidas(BigDecimal jmjTotalBebidas) {
+        this.jmjTotalBebidas = jmjTotalBebidas;
     }
 
     
-    @Column(name="jmj_desconto", precision=10)
-    public double getJmjDesconto() {
+    @Column(name="jmj_desconto", nullable=false, precision=10)
+    public BigDecimal getJmjDesconto() {
         return this.jmjDesconto;
     }
     
-    public void setJmjDesconto(double jmjDesconto) {
+    public void setJmjDesconto(BigDecimal jmjDesconto) {
         this.jmjDesconto = jmjDesconto;
     }
 
