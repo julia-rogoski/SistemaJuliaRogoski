@@ -14,6 +14,7 @@ import view_pesquisar.jDlgJMJ_BebidasPesquisar;
  * @author jumik
  */
 public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
+
     private boolean incluir;
 
     /**
@@ -25,9 +26,9 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
         setTitle("Cadastro de Bebidas");
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtFabricante, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
-        
+
     }
-    
+
     public JmjBebidas viewBean() {
         JmjBebidas bebidas = new JmjBebidas();
         int codigo = Util.strToInt(jTxtCodigo.getText());
@@ -52,6 +53,7 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
         jTxtVolume.setText(JmjBebidas.getJmjVolumeMl());
         jChbAtivo.setSelected(JmjBebidas.getJmjAtivo() == "S");
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -277,23 +279,26 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-         Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtFabricante, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-         Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
-         jTxtNome.grabFocus();
+        Util.habilitar(true, jTxtNome, jTxtFabricante, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+        jTxtNome.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnConfirmar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
-        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
-        Util.confirmar("Deseja excluir?");
-        Util.limpar(jTxtCodigo, jTxtFabricante, jTxtNome, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo);
+        if (Util.confirmar("Deseja excluir o registro?") == true) {
+            DAO_JmjBebidas JmjUsuariosDAO = new DAO_JmjBebidas();
+            JmjUsuariosDAO.delete(viewBean());
+            Util.habilitar(false, jBtnConfirmar, jBtnCancelar, jBtnExcluir, jBtnAlterar);
+            Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+            Util.limpar(jTxtCodigo, jTxtFabricante, jTxtNome, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo);
+        }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         DAO_JmjBebidas JmjUsuariosDAO = new DAO_JmjBebidas();
-        if(incluir) {
+        if (incluir) {
             JmjUsuariosDAO.insert(viewBean());
         } else {
             JmjUsuariosDAO.update(viewBean());
@@ -305,7 +310,7 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtFabricante, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo, jBtnConfirmar, jBtnCancelar,  jBtnAlterar, jBtnExcluir);
+        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtFabricante, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
         Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
         Util.limpar(jTxtCodigo, jTxtFabricante, jTxtNome, jTxtPreco, jTxtTeorAlcoolico, jTxtVolume, jCboTipo, jChbAtivo);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
@@ -314,7 +319,8 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
         // TODO add your handling code here:
         Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         Util.habilitar(false, jBtnIncluir, jBtnPesquisar, jBtnConfirmar, jBtnCancelar);
-        jDlgJMJ_BebidasPesquisar jMJ_BebidasPesquisar = new jDlgJMJ_BebidasPesquisar(null , true);
+        jDlgJMJ_BebidasPesquisar jMJ_BebidasPesquisar = new jDlgJMJ_BebidasPesquisar(null, true);
+        jMJ_BebidasPesquisar.setTelaPai(this);
         jMJ_BebidasPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

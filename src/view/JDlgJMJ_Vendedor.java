@@ -351,6 +351,7 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
         Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         JDlgJmj_VendedorPesquisar jDlgJMJ_VendedorPesquisar = new JDlgJmj_VendedorPesquisar(null, true);
+        jDlgJMJ_VendedorPesquisar.setTelaPai(this);
         jDlgJMJ_VendedorPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

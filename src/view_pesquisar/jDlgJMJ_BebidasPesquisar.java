@@ -4,18 +4,35 @@
  */
 package view_pesquisar;
 
+import bean.JmjBebidas;
+import dao.DAO_JmjBebidas;
+import java.util.List;
+import view.JDlgJMJ_Bebidas;
+
 /**
  *
  * @author jumik
  */
 public class jDlgJMJ_BebidasPesquisar extends javax.swing.JDialog {
-
+    
+    private JDlgJMJ_Bebidas jDlgJMJ_Bebidas;
+    ControllerJmjBebidas controllerBebidas;
     /**
      * Creates new form jDlgJMJ_BebidasPesquisar
      */
     public jDlgJMJ_BebidasPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Pesquisar Bebidas");
+        controllerBebidas = new ControllerJmjBebidas();
+        DAO_JmjBebidas bebidasDAO = new DAO_JmjBebidas();
+        List lista = (List) bebidasDAO.listAll();
+        controllerBebidas.setList(lista);
+        jTable1.setModel(controllerBebidas);
+    }
+    public void setTelaPai(JDlgJMJ_Bebidas jDlgJMJ_Bebidas) {
+        this.jDlgJMJ_Bebidas = jDlgJMJ_Bebidas;
     }
 
     /**
@@ -78,7 +95,9 @@ public class jDlgJMJ_BebidasPesquisar extends javax.swing.JDialog {
 
     private void jBnt_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnt_okActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
+        JmjBebidas bebidas = (JmjBebidas) controllerBebidas.getBean(jTable1.getSelectedRow());
+        jDlgJMJ_Bebidas.beanView(bebidas);
+        this.setVisible(false);
     }//GEN-LAST:event_jBnt_okActionPerformed
 
     /**

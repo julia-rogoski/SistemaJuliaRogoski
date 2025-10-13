@@ -31,7 +31,7 @@ public class ControllerJmjClientes extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 16;
+        return 4;
     }
 
     @Override

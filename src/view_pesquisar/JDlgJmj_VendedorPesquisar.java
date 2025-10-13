@@ -4,18 +4,35 @@
  */
 package view_pesquisar;
 
+import bean.JmjVendedor;
+import dao.DAO_JmjVendedor;
+import java.util.List;
+import view.JDlgJMJ_Vendedor;
+
 /**
  *
  * @author jumik
  */
 public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
 
+    private JDlgJMJ_Vendedor jDlgJMJ_Vendedor;
+    ControllerJmjVendedor controllerVendedor;
     /**
      * Creates new form jDlgVendedorPesquisar
      */
     public JDlgJmj_VendedorPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Pesquisar Vendedor");
+        controllerVendedor = new ControllerJmjVendedor();
+        DAO_JmjVendedor vendedorDAO = new DAO_JmjVendedor();
+        List lista = (List) vendedorDAO.listAll();
+        controllerVendedor.setList(lista);
+        jTable1.setModel(controllerVendedor);
+    }
+    public void setTelaPai(JDlgJMJ_Vendedor jDlgJMJ_Vendedor) {
+        this.jDlgJMJ_Vendedor = jDlgJMJ_Vendedor;
     }
 
     /**
@@ -29,7 +46,7 @@ public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jBtn_OK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -46,7 +63,12 @@ public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Ok");
+        jBtn_OK.setText("Ok");
+        jBtn_OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtn_OKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +80,7 @@ public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
                 .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jBtn_OK)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -67,12 +89,19 @@ public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jBtn_OK)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtn_OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_OKActionPerformed
+        // TODO add your handling code here:
+        JmjVendedor vendedor = (JmjVendedor) controllerVendedor.getBean(jTable1.getSelectedRow());
+        jDlgJMJ_Vendedor.beanView(vendedor);
+        this.setVisible(false);
+    }//GEN-LAST:event_jBtn_OKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,7 +149,7 @@ public class JDlgJmj_VendedorPesquisar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtn_OK;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

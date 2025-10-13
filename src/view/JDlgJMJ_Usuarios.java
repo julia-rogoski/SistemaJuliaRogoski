@@ -342,7 +342,7 @@ public class JDlgJMJ_Usuarios extends javax.swing.JDialog {
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, jFmtDataNascimento, jTxtApelido, jTxtCodigo, jTxtNome, jCboNivel, jPwdSenha, jFmtCpf, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jFmtDataNascimento, jTxtApelido, jTxtNome, jCboNivel, jPwdSenha, jFmtCpf, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
         jTxtNome.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
@@ -383,6 +383,7 @@ public class JDlgJMJ_Usuarios extends javax.swing.JDialog {
         Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
         Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         jDlgJMJ_UsuariosPesquisar jDlgJMJ_UsuariosPesquisar = new jDlgJMJ_UsuariosPesquisar(null, true);
+        jDlgJMJ_UsuariosPesquisar.setTelaPai(this);
         jDlgJMJ_UsuariosPesquisar.setVisible(true);
     }//GEN-LAST:event_jBtnPesquisarActionPerformed
 

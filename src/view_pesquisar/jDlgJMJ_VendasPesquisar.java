@@ -7,6 +7,7 @@ package view_pesquisar;
 import bean.JmjVendas;
 import dao.DAO_JmjVendas;
 import java.awt.event.ActionEvent;
+import java.util.List;
 import view.JDlg_JmjVendas;
 
 /**
@@ -24,7 +25,13 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
     public jDlgJMJ_VendasPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Pesquisar Produtos");
+        setLocationRelativeTo(null);
+        setTitle("Pesquisar Vendas");
+        controllerVendas = new ControllerJmjVendas();
+        DAO_JmjVendas vendasDAO = new DAO_JmjVendas();
+        List lista = (List) vendasDAO.listAll();
+        controllerVendas.setList(lista);
+        jTable.setModel(controllerVendas);
 
     }
 

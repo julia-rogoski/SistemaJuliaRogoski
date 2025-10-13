@@ -7,6 +7,7 @@ package view_pesquisar;
 import bean.JmjUsuarios;
 import dao.DAO_JmjUsuarios;
 import java.awt.event.ActionEvent;
+import java.util.List;
 import view.JDlgJMJ_Usuarios;
 
 /**
@@ -24,12 +25,18 @@ public class jDlgJMJ_UsuariosPesquisar extends javax.swing.JDialog {
     public jDlgJMJ_UsuariosPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Pesquisar Produtod");
+        setLocationRelativeTo(null);
+        setTitle("Pesquisar Usuarios");
+        controllerUsuarios = new ControllerJmjUsuarios();
+        DAO_JmjUsuarios usuariosDAO = new DAO_JmjUsuarios();
+        List lista = (List) usuariosDAO.listAll();
+        controllerUsuarios.setList(lista);
+        jTable.setModel(controllerUsuarios);
 
     }
 
     public void setTelaPai(JDlgJMJ_Usuarios jDlgJMJ_Usuarios) {
-         this.jDlgJMJ_Usuarios = jDlgJMJ_Usuarios;
+        this.jDlgJMJ_Usuarios = jDlgJMJ_Usuarios;
     }
 
     /**
@@ -92,10 +99,10 @@ public class jDlgJMJ_UsuariosPesquisar extends javax.swing.JDialog {
 
     private void jBtnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnOkActionPerformed
         // TODO add your handling code here:
-    JmjUsuarios usuarios = (JmjUsuarios) controllerUsuarios.getBean(jTable.getSelectedRow());
-    jDlgJMJ_Usuarios.beanView(usuarios);
-    this.setVisible(false);
-        
+        JmjUsuarios usuarios = (JmjUsuarios) controllerUsuarios.getBean(jTable.getSelectedRow());
+        jDlgJMJ_Usuarios.beanView(usuarios);
+        this.setVisible(false);
+
     }//GEN-LAST:event_jBtnOkActionPerformed
 
     /**

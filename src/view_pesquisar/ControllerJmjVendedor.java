@@ -31,7 +31,7 @@ public class ControllerJmjVendedor extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 13;
+        return 4;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class DAO_JmjVendedor extends DAO_Abstract{
     public Object list(int codigo) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjVendedor.class);
-        criteria.add(Restrictions.eq("jmjIdUsuarios", codigo));
+        criteria.add(Restrictions.eq("jmjIdVendedor", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();    
         return lista;

@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.JmjUsuarios;
+import bean.JmjBebidas;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -44,8 +44,8 @@ public class DAO_JmjBebidas extends DAO_Abstract{
     @Override
     public Object list(int codigo) {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(JmjUsuarios.class);
-        criteria.add(Restrictions.eq("jmjIdUsuarios", codigo));
+        Criteria criteria = session.createCriteria(JmjBebidas.class);
+        criteria.add(Restrictions.eq("jmjIdBebidas", codigo));
         List lista = criteria.list();
         session.getTransaction().commit();    
         return lista;
@@ -54,15 +54,15 @@ public class DAO_JmjBebidas extends DAO_Abstract{
     @Override
     public List listAll() {
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(JmjUsuarios.class);
+        Criteria criteria = session.createCriteria(JmjBebidas.class);
         List lista = criteria.list();
         session.getTransaction().commit();    
         return lista;
     }
     
     public static void main(String[] args) {
-        DAO_JmjBebidas dAO_JmjUsuarios = new DAO_JmjBebidas();
-        dAO_JmjUsuarios.listAll();
+        DAO_JmjBebidas dAO_JmjBebidas = new DAO_JmjBebidas();
+        dAO_JmjBebidas.listAll();
         System.out.println("Deu certo");
     }
     
