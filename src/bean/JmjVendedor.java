@@ -73,6 +73,15 @@ public class JmjVendedor  implements java.io.Serializable {
         return this.jmjNome;
     }
     
+    @Column(name="jmj_apelido", nullable=false, length=45)
+    public String getJmjApelido() {
+        return this.jmjApelido;
+    }
+    
+    public void setJmjApelido(String jmjApelido) {
+        this.jmjApelido = jmjApelido;
+    }
+    
     public void setJmjNome(String jmjNome) {
         this.jmjNome = jmjNome;
     }
@@ -128,14 +137,7 @@ public class JmjVendedor  implements java.io.Serializable {
     }
 
     
-    @Column(name="jmj_apelido", nullable=false, length=45)
-    public String getJmjApelido() {
-        return this.jmjApelido;
-    }
     
-    public void setJmjApelido(String jmjApelido) {
-        this.jmjApelido = jmjApelido;
-    }
 
 
 }
