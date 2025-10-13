@@ -4,11 +4,10 @@
  */
 package view;
 
-import bean.JmjClientes;
+
 import dao.DAO_JmjVendas;
 import bean.JmjVendas;
 import bean.JmjVendas;
-import bean.JmjVendedor;
 import java.util.List;
 import tools.Util;
 import view_pesquisar.jDlgJMJ_VendasPesquisar;
@@ -31,16 +30,21 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtCodigo, jCboVendedor, jFmtData, jCboClientes, jTxtTotal, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir);
 
-        dao.DAO_JmjClientes clientesDAO = new dao.DAO_JmjClientes();
+        DAO_JmjClientes clientesDAO = new DAO_JmjClientes();
+        DAO_JmjVendedor vendedoresDAO = new DAO_JmjVendedor();
         List<JmjClientes> lista = clientesDAO.listAll();
         for (int i = 0; i < lista.size(); i++) {
             jCboClientes.addItem(lista.get(i));
+        }
+        List vendedores = (List) vendedoresDAO.listAll();
+        for (int i = 0; i < vendedores.size(); i++) {
+            jCboVendedor.addItem((JmjVendedor) vendedores.get(i));
         }
     }
 
     public JmjVendas viewBean() {
         JmjVendas vendas = new JmjVendas();
-        vendas.setJmjIdVendas(Util.strToInt(jTxtCodigo.getSelectedText()));
+        vendas.setJmjIdVendas(Util.strToInt(jTxtCodigo.getText()));
         vendas.setJmjClientes((JmjClientes) jCboClientes.getSelectedItem());
         vendas.setJmjVendedor((JmjVendedor) jCboVendedor.getSelectedItem());
         vendas.setJmjDataVenda(Util.strToDate(jFmtData.getText()));
@@ -48,6 +52,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
 
         return vendas;
     }
+
     public void beanView(JmjVendas JmjVendas) {
         jTxtCodigo.setText(Util.intToStr(JmjVendas.getJmjIdVendas()));
         jCboClientes.setSelectedItem(JmjVendas.getJmjClientes());
@@ -75,7 +80,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
         jBtnCancelar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jBtnPesquisar = new javax.swing.JButton();
-        jCboVendedor = new javax.swing.JComboBox<String>();
+        jCboVendedor = new javax.swing.JComboBox<JmjVendedor>();
         jBtnIncluirProud = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jBtnAlterarProdu = new javax.swing.JButton();
@@ -300,19 +305,19 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.confirmar("Deseja excluir o registro?") == true) {
-        DAO_JmjVendas JmjVendasDAO = new DAO_JmjVendas();
-        JmjVendasDAO.delete(viewBean());
-        Util.habilitar(false, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
-        Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
-        Util.limpar(jTxtCodigo, jCboClientes, jCboVendedor, jTxtTotal, jFmtData);
+        if (Util.confirmar("Deseja excluir o registro?") == true) {
+            DAO_JmjVendas JmjVendasDAO = new DAO_JmjVendas();
+            JmjVendasDAO.delete(viewBean());
+            Util.habilitar(false, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
+            Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
+            Util.limpar(jTxtCodigo, jCboClientes, jCboVendedor, jTxtTotal, jFmtData);
         }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         DAO_JmjVendas JmjVendasDAO = new DAO_JmjVendas();
-        if(incluir) {
+        if (incluir) {
             JmjVendasDAO.insert(viewBean());
         } else {
             JmjVendasDAO.update(viewBean());
@@ -361,6 +366,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         //TODO add your handling code here:
+        incluir = true;
         Util.habilitar(true, jFmtData, jCboClientes, jTxtCodigo, jCboVendedor, jTxtTotal, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnPesquisar, jBtnAlterar, jBtnExcluir);
         //            jFmtCpf, jFmtDataDeNascimento, jPwfSenha,
@@ -373,6 +379,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
+        incluir = false;
         incluir = false;
         Util.habilitar(true, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
@@ -448,7 +455,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
     private javax.swing.JButton jBtnPesquisar;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<JmjClientes> jCboClientes;
-    private javax.swing.JComboBox<String> jCboVendedor;
+    private javax.swing.JComboBox<JmjVendedor> jCboVendedor;
     private javax.swing.JFormattedTextField jFmtData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

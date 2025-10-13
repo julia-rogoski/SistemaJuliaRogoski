@@ -136,7 +136,10 @@ public class JmjVendedor  implements java.io.Serializable {
         this.jmjAtivo = jmjAtivo;
     }
 
-    
+    @Override
+    public String toString() {
+        return this.jmjNome;
+    }
     
 
 

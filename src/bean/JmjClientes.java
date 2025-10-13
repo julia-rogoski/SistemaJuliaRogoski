@@ -255,7 +255,11 @@ public class JmjClientes  implements java.io.Serializable {
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
     }
-
+    
+    @Override
+    public String toString() {
+        return this.jmjNome;
+    }
 
 
 }
