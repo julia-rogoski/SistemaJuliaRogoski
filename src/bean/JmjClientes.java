@@ -34,6 +34,7 @@ public class JmjClientes  implements java.io.Serializable {
      private String jmjTelefone;
      private String jmjCelular;
      private String jmjCep;
+     private String jmjCnpj;
      private String jmjBairro;
      private String jmjEndereco;
      private String jmjCidade;
@@ -45,7 +46,7 @@ public class JmjClientes  implements java.io.Serializable {
     }
 
 	
-    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo) {
+    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String Cnpj, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo) {
         this.jmjIdClientes = jmjIdClientes;
         this.jmjNome = jmjNome;
         this.jmjCpf = jmjCpf;
@@ -56,6 +57,7 @@ public class JmjClientes  implements java.io.Serializable {
         this.jmjTelefone = jmjTelefone;
         this.jmjCelular = jmjCelular;
         this.jmjCep = jmjCep;
+        this.jmjCnpj = jmjCnpj;
         this.jmjBairro = jmjBairro;
         this.jmjEndereco = jmjEndereco;
         this.jmjCidade = jmjCidade;
@@ -63,7 +65,7 @@ public class JmjClientes  implements java.io.Serializable {
         this.jmjDataCadastro = jmjDataCadastro;
         this.jmjAtivo = jmjAtivo;
     }
-    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo, Set jmjVendases) {
+    public JmjClientes(int jmjIdClientes, String jmjNome, String jmjCpf, String jmjRg, int jmjSexo, Date jmjDataNascimento, String jmjEmail, String jmjTelefone, String jmjCelular, String jmjCep, String jmjCnpj, String jmjBairro, String jmjEndereco, String jmjCidade, String jmjUf, Date jmjDataCadastro, String jmjAtivo, Set jmjVendases) {
        this.jmjIdClientes = jmjIdClientes;
        this.jmjNome = jmjNome;
        this.jmjCpf = jmjCpf;
@@ -74,6 +76,7 @@ public class JmjClientes  implements java.io.Serializable {
        this.jmjTelefone = jmjTelefone;
        this.jmjCelular = jmjCelular;
        this.jmjCep = jmjCep;
+       this.jmjCnpj = jmjCnpj;
        this.jmjBairro = jmjBairro;
        this.jmjEndereco = jmjEndereco;
        this.jmjCidade = jmjCidade;
@@ -182,6 +185,15 @@ public class JmjClientes  implements java.io.Serializable {
     
     public void setJmjCep(String jmjCep) {
         this.jmjCep = jmjCep;
+    }
+    
+    @Column(name="jmj_cnpj", nullable=false, length=18)
+    public String getJmjCnpj() {
+        return this.jmjCnpj;
+    }
+    
+    public void setJmjCnpj(String jmjCnpj) {
+        this.jmjCnpj = jmjCnpj;
     }
 
     
