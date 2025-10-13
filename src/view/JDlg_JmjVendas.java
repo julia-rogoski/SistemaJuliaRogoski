@@ -4,10 +4,13 @@
  */
 package view;
 
-
+import bean.JmjClientes;
 import dao.DAO_JmjVendas;
 import bean.JmjVendas;
 import bean.JmjVendas;
+import bean.JmjVendedor;
+import dao.DAO_JmjClientes;
+import dao.DAO_JmjVendedor;
 import java.util.List;
 import tools.Util;
 import view_pesquisar.jDlgJMJ_VendasPesquisar;
@@ -191,6 +194,12 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
             }
         });
 
+        try {
+            jFmtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,7 +288,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
                         .addComponent(jBtnAlterarProdu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBtnExcluirProud, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(jLabel8)
@@ -297,7 +306,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jBtnIncluir)
                                 .addComponent(jBtnAlterar)))))
-                .addGap(83, 83, 83))
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -317,7 +326,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
         DAO_JmjVendas JmjVendasDAO = new DAO_JmjVendas();
-        if (incluir) {
+        if (incluir == true) {
             JmjVendasDAO.insert(viewBean());
         } else {
             JmjVendasDAO.update(viewBean());
