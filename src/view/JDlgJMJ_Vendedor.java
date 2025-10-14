@@ -178,6 +178,12 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
 
         jLabel10.setText("Apelido:");
 
+        try {
+            jFmtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -310,7 +316,7 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
         jTxtNome.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
