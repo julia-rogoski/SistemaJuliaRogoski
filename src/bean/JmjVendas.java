@@ -71,7 +71,7 @@ public class JmjVendas  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="jmj_fkVendedor", nullable=false)
+    @JoinColumn(name="jmj_fkVendedor", nullable=true)
     public JmjVendedor getJmjVendedor() {
         return this.jmjVendedor;
     }

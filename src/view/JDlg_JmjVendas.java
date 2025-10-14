@@ -390,7 +390,7 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
         incluir = false;
         incluir = false;
-        Util.habilitar(true, jCboClientes, jCboVendedor, jTxtCodigo, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jCboClientes, jCboVendedor, jTxtTotal, jFmtData, jBtnConfirmar, jBtnCancelar);
         Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
         jTxtCodigo.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed

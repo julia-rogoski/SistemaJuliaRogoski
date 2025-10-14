@@ -75,7 +75,7 @@ public class Util {
     }
 
     public static String doubleToStr(double num) {
-        return "";
+        return String.valueOf(num);
     }
 
     public static String dateToStr(Date num) {
