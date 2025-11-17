@@ -35,7 +35,7 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
         bebidas.setJmjIdBebidas(codigo);
         bebidas.setJmjNome(jTxtNome.getText());
         bebidas.setJmjTipo(jCboTipo.getSelectedIndex());
-        bebidas.setJmjPreco(jTxtPreco.getText());
+        bebidas.setJmjPreco(Util.strToDouble(jTxtPreco.getText()));
         bebidas.setJmjFabricante(jTxtFabricante.getText());
         bebidas.setJmjTeorAlcoolico(jTxtTeorAlcoolico.getText());
         bebidas.setJmjVolumeMl(jTxtVolume.getText());
@@ -47,7 +47,7 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
         jTxtCodigo.setText(Util.intToStr(JmjBebidas.getJmjIdBebidas()));
         jTxtNome.setText(JmjBebidas.getJmjNome());
         jCboTipo.setSelectedIndex(JmjBebidas.getJmjTipo());
-        jTxtPreco.setText(JmjBebidas.getJmjPreco());
+        jTxtPreco.setText(Util.doubleToStr(JmjBebidas.getJmjPreco()));
         jTxtFabricante.setText(JmjBebidas.getJmjFabricante());
         jTxtTeorAlcoolico.setText(JmjBebidas.getJmjTeorAlcoolico());
         jTxtVolume.setText(JmjBebidas.getJmjVolumeMl());

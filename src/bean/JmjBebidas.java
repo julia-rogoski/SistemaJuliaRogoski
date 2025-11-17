@@ -24,7 +24,7 @@ public class JmjBebidas  implements java.io.Serializable {
      private int jmjIdBebidas;
      private String jmjNome;
      private int jmjTipo;
-     private String jmjPreco;
+     private double jmjPreco;
      private String jmjFabricante;
      private String jmjTeorAlcoolico;
      private String jmjVolumeMl;
@@ -34,7 +34,7 @@ public class JmjBebidas  implements java.io.Serializable {
     }
 
 	
-    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, String jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo) {
+    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, double jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo) {
         this.jmjIdBebidas = jmjIdBebidas;
         this.jmjNome = jmjNome;
         this.jmjTipo = jmjTipo;
@@ -44,7 +44,7 @@ public class JmjBebidas  implements java.io.Serializable {
         this.jmjVolumeMl = jmjVolumeMl;
         this.jmjAtivo = jmjAtivo;
     }
-    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, String jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo, Set jmjVendasBebidases) {
+    public JmjBebidas(int jmjIdBebidas, String jmjNome, int jmjTipo, double jmjPreco, String jmjFabricante, String jmjTeorAlcoolico, String jmjVolumeMl, String jmjAtivo, Set jmjVendasBebidases) {
        this.jmjIdBebidas = jmjIdBebidas;
        this.jmjNome = jmjNome;
        this.jmjTipo = jmjTipo;
@@ -89,11 +89,11 @@ public class JmjBebidas  implements java.io.Serializable {
 
     
     @Column(name="jmj_preco", nullable=false, length=10)
-    public String getJmjPreco() {
+    public double getJmjPreco() {
         return this.jmjPreco;
     }
     
-    public void setJmjPreco(String jmjPreco) {
+    public void setJmjPreco(double jmjPreco) {
         this.jmjPreco = jmjPreco;
     }
 
