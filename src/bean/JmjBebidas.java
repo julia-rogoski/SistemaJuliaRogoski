@@ -136,7 +136,15 @@ public class JmjBebidas  implements java.io.Serializable {
     public void setJmjAtivo(String jmjAtivo) {
         this.jmjAtivo = jmjAtivo;
     }
-
+    public boolean equals(Object object) {
+        if (object instanceof JmjBebidas) {
+            JmjBebidas produtos = (JmjBebidas) object;
+            if (this.getJmjIdBebidas() == produtos.getJmjIdBebidas()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 
