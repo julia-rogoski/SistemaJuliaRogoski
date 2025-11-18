@@ -29,19 +29,18 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
 
     }
 
-    public JmjBebidas viewBean() {
-        JmjBebidas bebidas = new JmjBebidas();
-        int codigo = Util.strToInt(jTxtCodigo.getText());
-        bebidas.setJmjIdBebidas(codigo);
-        bebidas.setJmjNome(jTxtNome.getText());
-        bebidas.setJmjTipo(jCboTipo.getSelectedIndex());
-        bebidas.setJmjPreco(Util.strToDouble(jTxtPreco.getText()));
-        bebidas.setJmjFabricante(jTxtFabricante.getText());
-        bebidas.setJmjTeorAlcoolico(jTxtTeorAlcoolico.getText());
-        bebidas.setJmjVolumeMl(jTxtVolume.getText());
-        bebidas.setJmjAtivo(jChbAtivo.isSelected() ? "S" : "N");
-        return bebidas;
-    }
+public JmjBebidas viewBean() {
+    // Coleta os dados do formulário
+    int codigo = Util.strToInt(jTxtCodigo.getText());
+    String nome = jTxtNome.getText();
+    int tipo = jCboTipo.getSelectedIndex();
+    double preco = Util.strToDouble(jTxtPreco.getText());
+    String fabricante = jTxtFabricante.getText();
+    String teorAlcoolico = jTxtTeorAlcoolico.getText();
+    String volumeMl = jTxtVolume.getText();
+    String ativo = jChbAtivo.isSelected() ? "S" : "N";
+    JmjBebidas bebidas = new JmjBebidas();
+    return bebidas;}
 
     public void beanView(JmjBebidas JmjBebidas) {
         jTxtCodigo.setText(Util.intToStr(JmjBebidas.getJmjIdBebidas()));

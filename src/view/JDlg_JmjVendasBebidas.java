@@ -13,19 +13,30 @@ import tools.Util;
  *
  * @author u09208193110
  */
-public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
-     public JDlg_JmjVendasBebidas(java.awt.Frame parent, boolean modal) {
+  public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
+    
+    JDlgJMJ_Bebidas jDlgJMJ_Bebidas;
+    
+    public void setTelaAnterior(JDlgJMJ_Bebidas jDlgJMJ_Bebidas){
+        this.jDlgJMJ_Bebidas = jDlgJMJ_Bebidas;
+    }
+
+    /**
+     * Creates new form JDlgPedidosProdutos
+     */
+    public  JDlg_JmjVendasBebidas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Vendas de Bebidas");
         setLocationRelativeTo(null);
-        DAO_JmjBebidas bebidasDAO = new DAO_JmjBebidas();
-        List lista = (List) bebidasDAO.listAll();
-        for (int i = 0; i < lista.size(); i++) {
-            jCboBebidas.addItem((JmjBebidas) lista.get(i));
-            
+        Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
+        jTxtQuantidade.setText("1");
+        DAO_JmjBebidas bebidasDao = new DAO_JmjBebidas();
+        List lista = (List) bebidasDao.listAll();
+        for (Object object : lista) {
+            jCboBebidas.addItem((JmjBebidas) object);
         }
     }
+     
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,6 +105,11 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
         jLabel14.setText("Valor unitário");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jLabel15.setText("Total");
 
@@ -113,11 +129,22 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
             }
         });
 
+        jCboBebidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCboBebidasActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Quantidade");
 
         jTxtQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtQuantidadeActionPerformed(evt);
+            }
+        });
+        jTxtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTxtQuantidadeKeyReleased(evt);
             }
         });
 
@@ -130,11 +157,7 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(385, 385, 385)
-                        .addComponent(jLabel8))
-                    .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,15 +168,20 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtnoK)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(jBtnCancelar))
                             .addComponent(jLabel15)
                             .addComponent(jLabel2)
                             .addComponent(jTxtQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(jTxtTotal))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(jTxtTotal)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(jBtnoK)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBtnCancelar)
+                        .addGap(8, 8, 8)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,18 +202,22 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnoK))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(59, 59, 59))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtnoK)
+                            .addComponent(jBtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 43, Short.MAX_VALUE))))
         );
 
         pack();
@@ -222,6 +254,28 @@ public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
         int quant = Util.strToInt(jTxtQuantidade.getText());    
         jTxtTotal.setText(Util.doubleToStr(quant * bebidas.getJmjPreco()));
     }//GEN-LAST:event_jTxtQuantidadeActionPerformed
+
+    private void jCboBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboBebidasActionPerformed
+        // TODO add your handling code here: 
+        JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
+        jTxtPreco.setText(Util.doubleToStr(bebidas.getJmjPreco()));
+        int quant = Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Util.doubleToStr(quant * bebidas.getJmjPreco()));
+    }//GEN-LAST:event_jCboBebidasActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentShown
+
+    private void jTxtQuantidadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtQuantidadeKeyReleased
+        // TODO add your handling code here:
+        if(!jTxtQuantidade.getText().isEmpty()){
+        JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
+        int quant = Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Util.doubleToStr(quant*bebidas.getJmjPreco()));
+        }  else{ jTxtTotal.setText("0");
+        }
+    }//GEN-LAST:event_jTxtQuantidadeKeyReleased
 
     /**
      * @param args the command line arguments
