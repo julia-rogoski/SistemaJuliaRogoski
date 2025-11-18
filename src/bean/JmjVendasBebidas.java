@@ -28,7 +28,7 @@ public class JmjVendasBebidas  implements java.io.Serializable {
      private JmjVendas jmjVendas;
      private int jmjQuantidade;
      private double jmjTotalBebidas;
-     private double jmjDesconto;
+     private double jmjPreco;
 
     public JmjVendasBebidas() {
     }
@@ -38,7 +38,7 @@ public class JmjVendasBebidas  implements java.io.Serializable {
        this.jmjVendas = jmjVendas;
        this.jmjQuantidade = jmjQuantidade;
        this.jmjTotalBebidas = jmjTotalBebidas;
-       this.jmjDesconto = jmjDesconto;
+       this.jmjPreco = jmjPreco;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -94,13 +94,13 @@ public class JmjVendasBebidas  implements java.io.Serializable {
     }
 
     
-    @Column(name="jmj_desconto", nullable=false, precision=10)
-    public double getJmjDesconto() {
-        return this.jmjDesconto;
+    @Column(name="jmj_preco", nullable=false, precision=10)
+    public double getJmjPreco() {
+        return this.jmjPreco;
     }
     
-    public void setJmjDesconto(double jmjDesconto) {
-        this.jmjDesconto = jmjDesconto;
+    public void setJmjPreco(double jmjPreco) {
+        this.jmjPreco = jmjPreco;
     }
 
 

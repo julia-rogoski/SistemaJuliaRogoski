@@ -6,6 +6,7 @@
 package view_pesquisar;
 
 import bean.JmjVendasBebidas;
+import bean.JmjBebidas;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -48,17 +49,19 @@ public class ControllerJmjVendasBebidas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        PedidosProdutos pedidosProdutos = (PedidosProdutos) lstPedidosProdutos.get( rowIndex);
+        JmjVendasBebidas vendasBebidas = (JmjVendasBebidas) lstVendasBebidas.get( rowIndex);
         if ( columnIndex == 0 ){
-            return pedidosProdutos.getProdutos().getIdprodutos();
+            return vendasBebidas.getJmjBebidas().getJmjIdBebidas();
         } else if (columnIndex ==1) {
-            return pedidosProdutos.getProdutos().getNome();        
+            return vendasBebidas.getJmjBebidas().getJmjNome();        
         } else if (columnIndex ==2) {
-            return pedidosProdutos.getQuantidade();
+            return vendasBebidas.getJmjVendas();
         } else if (columnIndex ==3) {
-            return pedidosProdutos.getValorUnitario();
+            return vendasBebidas.getJmjQuantidade();
         } else if (columnIndex ==4) {
-            return pedidosProdutos.getQuantidade() * pedidosProdutos.getValorUnitario();
+            return vendasBebidas.getJmjTotalBebidas() * vendasBebidas.getJmjPreco();
+        } else if (columnIndex ==4) {
+            return vendasBebidas.getJmjPreco() * vendasBebidas.getJmjPreco();
         }
         return "";
     }
@@ -68,11 +71,11 @@ public class ControllerJmjVendasBebidas extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Produto";         
+            return "Bebidas:";         
         } else if ( columnIndex == 2) {
             return "Quantidade";
         } else if ( columnIndex == 3) {
-            return "Valor Unitário";
+            return "Preço";
         } else if ( columnIndex == 4) {
             return "Total";
         } 
