@@ -260,6 +260,16 @@ public class JmjClientes  implements java.io.Serializable {
     public String toString() {
         return this.jmjNome;
     }
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof JmjClientes) {
+            JmjClientes jmjClientes = (JmjClientes) object;
+            if (this.getJmjIdClientes() == jmjClientes.getJmjIdClientes()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

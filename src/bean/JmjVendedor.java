@@ -140,8 +140,16 @@ public class JmjVendedor  implements java.io.Serializable {
     public String toString() {
         return this.jmjNome;
     }
-    
-
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof JmjVendedor) {
+            JmjVendedor jmjVendedor = (JmjVendedor) object;
+            if (this.getJmjIdVendedor() == jmjVendedor.getJmjIdVendedor()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 
