@@ -52,7 +52,7 @@ public class DAO_JmjUsuarios extends DAO_Abstract{
     }
 
     @Override
-    public List listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjUsuarios.class);
         List lista = criteria.list();
@@ -63,7 +63,7 @@ public class DAO_JmjUsuarios extends DAO_Abstract{
     public static void main(String[] args) {
         DAO_JmjUsuarios dAO_JmjUsuarios = new DAO_JmjUsuarios();
         dAO_JmjUsuarios.listAll();
-        System.out.println("Deu certo");
+        System.out.println("Deu certo!");
     }
     
 }

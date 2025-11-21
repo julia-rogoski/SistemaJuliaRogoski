@@ -52,7 +52,7 @@ public class DAO_JmjVendasBebidas extends DAO_Abstract{
     }
 
     @Override
-    public List listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjVendasBebidas.class);
         List lista = criteria.list();
@@ -63,7 +63,7 @@ public class DAO_JmjVendasBebidas extends DAO_Abstract{
     public static void main(String[] args) {
         DAO_JmjVendasBebidas Dao_JmjVendasBebidas = new DAO_JmjVendasBebidas();
         Dao_JmjVendasBebidas.listAll();
-        System.out.println("Deu certo");
+        System.out.println("Deu certo!");
     }
     
 }

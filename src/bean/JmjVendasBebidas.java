@@ -41,9 +41,8 @@ public class JmjVendasBebidas  implements java.io.Serializable {
        this.jmjPreco = jmjPreco;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id 
 
-    
     @Column(name="jmj_idVendas_Bebidas", unique=true, nullable=false)
     public Integer getJmjIdVendasBebidas() {
         return this.jmjIdVendasBebidas;
@@ -63,7 +62,7 @@ public class JmjVendasBebidas  implements java.io.Serializable {
         this.jmjBebidas = jmjBebidas;
     }
 
-@ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="jmj_fkVendas", nullable=false)
     public JmjVendas getJmjVendas() {
         return this.jmjVendas;
@@ -102,9 +101,6 @@ public class JmjVendasBebidas  implements java.io.Serializable {
     public void setJmjPreco(double jmjPreco) {
         this.jmjPreco = jmjPreco;
     }
-
-
-
 
 }
 

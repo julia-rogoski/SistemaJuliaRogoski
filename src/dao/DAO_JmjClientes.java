@@ -52,7 +52,7 @@ public class DAO_JmjClientes extends DAO_Abstract{
     }
 
     @Override
-    public List listAll() {
+    public Object listAll() {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjClientes.class);
         List lista = criteria.list();
@@ -63,7 +63,7 @@ public class DAO_JmjClientes extends DAO_Abstract{
     public static void main(String[] args) {
         DAO_JmjClientes Dao_JmjClientes = new DAO_JmjClientes();
         Dao_JmjClientes.listAll();
-        System.out.println("Deu certo");
+        System.out.println("Deu certo!");
     }
     
 }
