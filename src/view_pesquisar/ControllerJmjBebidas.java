@@ -14,19 +14,28 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjBebidas extends AbstractTableModel {
     
-    List lista;
+    private static boolean Novo(String valor) {
+        if (valor == null) {
+            return false;
+        }
+        valor = valor.trim().toLowerCase();
+        return valor.equals("1") || valor.equals("true") || valor.equals("Sim") || valor.equals("S");
+    }
+
+    
+    private List<JmjBebidas> lstBebidas;
     
     public void setList(List lista) {
-        this.lista = lista;
+        this.lstBebidas = lista;
     }
     
     public Object getBean(int rowIndex) {
-        return lista.get(rowIndex);
+        return lstBebidas.get(rowIndex);
     }
     
     @Override
     public int getRowCount() {
-        return lista.size();
+        return lstBebidas != null ? lstBebidas.size() : 0;
     }
 
     @Override
@@ -36,7 +45,7 @@ public class ControllerJmjBebidas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjBebidas jmj_bebidas = (JmjBebidas) lista.get(rowIndex);
+        JmjBebidas jmj_bebidas = (JmjBebidas) lstBebidas.get(rowIndex);
         if (columnIndex == 0) {
             return jmj_bebidas.getJmjIdBebidas();
         } 

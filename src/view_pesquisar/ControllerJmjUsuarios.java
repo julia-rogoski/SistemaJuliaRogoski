@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class ControllerJmjUsuarios extends AbstractTableModel {
 
-    private List lstUsuarios;
+    private List<JmjUsuarios> lstUsuarios;
 
     public void setList(List lstUsuarios) {
         this.lstUsuarios = lstUsuarios;
@@ -18,7 +18,7 @@ public class ControllerJmjUsuarios extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return lstUsuarios.size();
+        return lstUsuarios != null ? lstUsuarios.size() : 0;
     }
 
     @Override

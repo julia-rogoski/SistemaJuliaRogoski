@@ -14,19 +14,20 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjVendedor extends AbstractTableModel {
     
-    List lista;
+    private List<JmjVendedor> lstVendedor;
     
     public void setList(List lista) {
-        this.lista = lista;
+        this.lstVendedor = lstVendedor;
+        fireTableDataChanged();
     }
     
     public Object getBean(int rowIndex) {
-        return lista.get(rowIndex);
+        return lstVendedor.get(rowIndex);
     }
     
     @Override
     public int getRowCount() {
-        return lista.size();
+        return lstVendedor != null ? lstVendedor.size() : 0;
     }
 
     @Override
@@ -36,7 +37,7 @@ public class ControllerJmjVendedor extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjVendedor jmj_vendedor = (JmjVendedor) lista.get(rowIndex);
+        JmjVendedor jmj_vendedor = (JmjVendedor) lstVendedor.get(rowIndex);
         if (columnIndex == 0) {
             return jmj_vendedor.getJmjIdVendedor();
         } 

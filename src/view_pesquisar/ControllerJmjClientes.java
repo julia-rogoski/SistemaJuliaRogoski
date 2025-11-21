@@ -14,19 +14,19 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjClientes extends AbstractTableModel {
     
-    List lista;
+    private List<JmjClientes> lstClientes;
     
     public void setList(List lista) {
-        this.lista = lista;
+        this.lstClientes = lista;
     }
     
     public Object getBean(int rowIndex) {
-        return lista.get(rowIndex);
+        return lstClientes.get(rowIndex);
     }
     
     @Override
     public int getRowCount() {
-        return lista.size();
+        return lstClientes != null ? lstClientes.size() : 0;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ControllerJmjClientes extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjClientes jmj_clientes = (JmjClientes) lista.get(rowIndex);
+        JmjClientes jmj_clientes = (JmjClientes) lstClientes.get(rowIndex);
         if (columnIndex == 0) {
             return jmj_clientes.getJmjIdClientes();
         } 
@@ -46,21 +46,21 @@ public class ControllerJmjClientes extends AbstractTableModel {
         } 
         
         if (columnIndex == 2) {
-            return jmj_clientes.getJmjCpf();
-        } 
-        
-        if (columnIndex == 3) {
-            return jmj_clientes.getJmjRg();
-        }
-        
-        if (columnIndex == 4) {
             return jmj_clientes.getJmjSexo();
         }
         
-        if (columnIndex == 5) {
+        if (columnIndex == 3) {
+            return jmj_clientes.getJmjCpf();
+        } 
+        
+        if (columnIndex == 4) {
             return jmj_clientes.getJmjDataNascimento();
         }
-        
+           
+        if (columnIndex == 5) {
+            return jmj_clientes.getJmjRg();
+        }
+          
         if (columnIndex == 6) {
             return jmj_clientes.getJmjEmail();
         }
@@ -125,36 +125,33 @@ public class ControllerJmjClientes extends AbstractTableModel {
             return "Rg";
         }
         if (column == 6){
-            return "Senha";
-        }
-        if (column == 7){
             return "Email";
         }
-        if (column == 8){
+        if (column == 7){
             return "Telefone";
         }
-        if (column == 9){
+        if (column == 8){
             return "Celular";
         }
-        if (column == 10){
+        if (column == 9){
             return "Cep";
         }
-        if (column == 11){
+        if (column == 10){
             return "Endereco";
         }
-        if (column == 12){
+        if (column == 11){
             return "Bairro";
         }
-        if (column == 13){
+        if (column == 12){
             return "Cidade";
         }
-        if (column == 14){
+        if (column == 13){
             return "Uf";
         }
-        if (column == 15){
+        if (column == 14){
             return "Data de Cadastro";
         }
-        if (column == 16){
+        if (column == 15){
             return "Ativo";
         }
         return "";

@@ -6,19 +6,19 @@ import javax.swing.table.AbstractTableModel;
 
 public class ControllerJmjVendas extends AbstractTableModel {
 
-    private List lstUsuarios;
+    private List<JmjVendas> lstVendas;
 
     public void setList(List lstUsuarios) {
-        this.lstUsuarios = lstUsuarios;
+        this.lstVendas = lstUsuarios;
     }
 
     public JmjVendas getBean(int rowIndex) {
-        return (JmjVendas) lstUsuarios.get(rowIndex);
+        return (JmjVendas) lstVendas.get(rowIndex);
     }
 
     @Override
     public int getRowCount() {
-        return lstUsuarios.size();
+        return lstVendas != null ? lstVendas.size() : 0;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ControllerJmjVendas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjVendas usuarios = (JmjVendas) lstUsuarios.get(rowIndex);
+        JmjVendas usuarios = (JmjVendas) lstVendas.get(rowIndex);
         if (columnIndex == 0) {
             return usuarios.getJmjIdVendas();
         } else if (columnIndex == 1) {

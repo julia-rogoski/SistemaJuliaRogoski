@@ -16,29 +16,33 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjVendasBebidas extends AbstractTableModel {
 
-    private List lstVendasBebidas;
+    private List<JmjVendasBebidas> lstVendaBebidas;
 
     public void setList(List lstPedidos) {
-        this.lstVendasBebidas = lstPedidos;
+        this.lstVendaBebidas = lstVendaBebidas;
+        fireTableDataChanged();
+    }
+    public List<JmjVendasBebidas> getVendas() {
+        return lstVendaBebidas;
     }
     
     public JmjVendasBebidas getBean(int rowIndex) {
-        return (JmjVendasBebidas) lstVendasBebidas.get(rowIndex);
+        return (JmjVendasBebidas) lstVendaBebidas.get(rowIndex);
     }
     
     public void addBean(JmjVendasBebidas vendasBebidas) {
-        this.lstVendasBebidas.add(vendasBebidas);
+        this.lstVendaBebidas.add(vendasBebidas);
         this.fireTableDataChanged();
     }
     
     public void removeBean(int rowIndex){
-        this.lstVendasBebidas.remove(rowIndex);
+        this.lstVendaBebidas.remove(rowIndex);
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstVendasBebidas.size();
+        return lstVendaBebidas != null ? lstVendaBebidas.size() : 0;
                 
     }
 
@@ -49,7 +53,7 @@ public class ControllerJmjVendasBebidas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjVendasBebidas vendasBebidas = (JmjVendasBebidas) lstVendasBebidas.get( rowIndex);
+        JmjVendasBebidas vendasBebidas = (JmjVendasBebidas) lstVendaBebidas.get( rowIndex);
         if ( columnIndex == 0 ){
             return vendasBebidas.getJmjBebidas().getJmjIdBebidas();
         } else if (columnIndex ==1) {
