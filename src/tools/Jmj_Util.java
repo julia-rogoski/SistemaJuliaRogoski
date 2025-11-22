@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author u06716483144
  */
-public class Util {
+public class Jmj_Util {
 
     public static void habilitar(boolean valor, JComponent... componentes) {
         for (int i = 0; i < componentes.length; i++) {
@@ -65,7 +65,7 @@ public class Util {
         try {
             return dateNascFormat.parse(str);
         } catch (ParseException ex) {
-            Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Jmj_Util.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

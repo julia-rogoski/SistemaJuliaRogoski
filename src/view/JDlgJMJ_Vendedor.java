@@ -7,7 +7,7 @@ package view;
 import bean.JmjVendedor;
 import dao.DAO_JmjVendedor;
 import view_pesquisar.JDlgJmj_VendedorPesquisar;
-import tools.Util;
+import tools.Jmj_Util;
 import view_pesquisar.jDlgJMJ_BebidasPesquisar;
 import view_pesquisar.jDlgJMJ_BebidasPesquisar;
 import view_pesquisar.jDlgJMJ_UsuariosPesquisar;
@@ -28,12 +28,12 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Usuários");
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnAlterar, jBtnCancelar, jBtnConfirmar, jBtnExcluir);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnAlterar, jBtnCancelar, jBtnConfirmar, jBtnExcluir);
     }
 
     public JmjVendedor viewBean() {
         JmjVendedor JmjVendedor = new JmjVendedor();
-        int codigo = Util.strToInt(jTxtCodigo.getText());
+        int codigo = Jmj_Util.strToInt(jTxtCodigo.getText());
         JmjVendedor.setJmjIdVendedor(codigo);
         JmjVendedor.setJmjNome(jTxtNome.getText());
         JmjVendedor.setJmjApelido(jTxtApelido.getText());
@@ -46,7 +46,7 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     }
 
     public void beanView(JmjVendedor JmjVendedor) {
-        jTxtCodigo.setText(Util.intToStr(JmjVendedor.getJmjIdVendedor()));
+        jTxtCodigo.setText(Jmj_Util.intToStr(JmjVendedor.getJmjIdVendedor()));
         jTxtNome.setText(JmjVendedor.getJmjNome());
         jTxtApelido.setText(JmjVendedor.getJmjApelido());
         jFmtCpf.setText(JmjVendedor.getJmjCpf());
@@ -311,8 +311,8 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         incluir = true;
-        Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.habilitar(true, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
         jTxtCodigo.grabFocus();
 
     }//GEN-LAST:event_jBtnIncluirActionPerformed
@@ -320,19 +320,19 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(true, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir);
         jTxtNome.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if(Util.confirmar("Deseja excluir o registro?") == true) {
+        if(Jmj_Util.confirmar("Deseja excluir o registro?") == true) {
         DAO_JmjVendedor JmjVendedorDAO = new DAO_JmjVendedor();
         JmjVendedorDAO.delete(viewBean());
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
-        Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
-        Util.limpar(jTxtCodigo, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnConfirmar, jBtnCancelar, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
+        Jmj_Util.limpar(jTxtCodigo, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo);
         }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -344,22 +344,22 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
         } else {
             JmjVendedorDAO.update(viewBean());
         }
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir);
-        Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
-        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jChbAtivo, jBtnCancelar, jBtnConfirmar);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
+        Jmj_Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jChbAtivo, jBtnCancelar, jBtnConfirmar);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir);
-        Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
-        Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(true, jBtnPesquisar, jBtnIncluir);
+        Jmj_Util.limpar(jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnCancelar, jBtnConfirmar);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         JDlgJmj_VendedorPesquisar jDlgJMJ_VendedorPesquisar = new JDlgJmj_VendedorPesquisar(null, true);
         jDlgJMJ_VendedorPesquisar.setTelaPai(this);
         jDlgJMJ_VendedorPesquisar.setVisible(true);

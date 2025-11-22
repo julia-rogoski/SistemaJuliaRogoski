@@ -7,7 +7,7 @@ package view;
 import java.util.List;
 import bean.JmjBebidas;
 import dao.DAO_JmjBebidas;
-import tools.Util;
+import tools.Jmj_Util;
 
 /**
  *
@@ -28,7 +28,7 @@ import tools.Util;
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
+        Jmj_Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
         jTxtQuantidade.setText("1");
         DAO_JmjBebidas bebidasDao = new DAO_JmjBebidas();
         List lista = (List) bebidasDao.listAll();
@@ -250,17 +250,17 @@ import tools.Util;
     private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
         // TODO add your handling code here:
         JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
-        jTxtPreco.setText(Util.doubleToStr(bebidas.getJmjPreco()));
-        int quant = Util.strToInt(jTxtQuantidade.getText());    
-        jTxtTotal.setText(Util.doubleToStr(quant * bebidas.getJmjPreco()));
+        jTxtPreco.setText(Jmj_Util.doubleToStr(bebidas.getJmjPreco()));
+        int quant = Jmj_Util.strToInt(jTxtQuantidade.getText());    
+        jTxtTotal.setText(Jmj_Util.doubleToStr(quant * bebidas.getJmjPreco()));
     }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
     private void jCboBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboBebidasActionPerformed
         // TODO add your handling code here: 
         JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
-        jTxtPreco.setText(Util.doubleToStr(bebidas.getJmjPreco()));
-        int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToStr(quant * bebidas.getJmjPreco()));
+        jTxtPreco.setText(Jmj_Util.doubleToStr(bebidas.getJmjPreco()));
+        int quant = Jmj_Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Jmj_Util.doubleToStr(quant * bebidas.getJmjPreco()));
     }//GEN-LAST:event_jCboBebidasActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -271,8 +271,8 @@ import tools.Util;
         // TODO add your handling code here:
         if(!jTxtQuantidade.getText().isEmpty()){
         JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
-        int quant = Util.strToInt(jTxtQuantidade.getText());
-        jTxtTotal.setText(Util.doubleToStr(quant*bebidas.getJmjPreco()));
+        int quant = Jmj_Util.strToInt(jTxtQuantidade.getText());
+        jTxtTotal.setText(Jmj_Util.doubleToStr(quant*bebidas.getJmjPreco()));
         }  else{ jTxtTotal.setText("0");
         }
     }//GEN-LAST:event_jTxtQuantidadeKeyReleased

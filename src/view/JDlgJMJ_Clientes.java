@@ -6,7 +6,7 @@ package view;
 
 import bean.JmjClientes;
 import dao.DAO_JmjClientes;
-import tools.Util;
+import tools.Jmj_Util;
 import view_pesquisar.JDlgJmj_ClientesPesquisar;
 
 /**
@@ -25,7 +25,7 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
         initComponents();
         setTitle("Cadastro de Clientes");
         setLocationRelativeTo(null);
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtBairro, jTxtCelular, jTxtCidade, jFmtCep, jFmtCpf, jFmtCnpj, jFmtDataCadastro, jFmtDataNascimento, jFmtRg, jTxtEmail, jTxtEndereco, jTxtTelefone, jTxtUf, jChbAtivo, jCboSexo, jBtnAlterar, jBtnExcluir, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtBairro, jTxtCelular, jTxtCidade, jFmtCep, jFmtCpf, jFmtCnpj, jFmtDataCadastro, jFmtDataNascimento, jFmtRg, jTxtEmail, jTxtEndereco, jTxtTelefone, jTxtUf, jChbAtivo, jCboSexo, jBtnAlterar, jBtnExcluir, jBtnConfirmar, jBtnCancelar);
         jFmtCnpj.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -80,13 +80,13 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
 
     public JmjClientes viewBean() {
         JmjClientes jmjClientes = new JmjClientes();
-        int codigo = Util.strToInt(jTxtCodigo.getText());
+        int codigo = Jmj_Util.strToInt(jTxtCodigo.getText());
         jmjClientes.setJmjIdClientes(codigo);
         jmjClientes.setJmjNome(jTxtNome.getText());
         jmjClientes.setJmjCpf(jFmtCpf.getText());
         jmjClientes.setJmjRg(jFmtRg.getText());
         jmjClientes.setJmjSexo(jCboSexo.getSelectedIndex());
-        jmjClientes.setJmjDataNascimento(Util.strToDate(jFmtDataNascimento.getText()));
+        jmjClientes.setJmjDataNascimento(Jmj_Util.strToDate(jFmtDataNascimento.getText()));
         jmjClientes.setJmjEmail(jTxtEmail.getText());
         jmjClientes.setJmjTelefone(jTxtTelefone.getText());
         jmjClientes.setJmjCep(jFmtCep.getText());
@@ -96,18 +96,18 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
         jmjClientes.setJmjEndereco(jTxtEndereco.getText());
         jmjClientes.setJmjCidade(jTxtCidade.getText());
         jmjClientes.setJmjUf(jTxtUf.getText());
-        jmjClientes.setJmjDataCadastro(Util.strToDate(jFmtDataCadastro.getText()));
+        jmjClientes.setJmjDataCadastro(Jmj_Util.strToDate(jFmtDataCadastro.getText()));
         jmjClientes.setJmjAtivo(jChbAtivo.isSelected() ? "S" : "N");
         return jmjClientes;
     }
 
     public void beanView(JmjClientes jmjClientes) {
-        jTxtCodigo.setText(Util.intToStr(jmjClientes.getJmjIdClientes()));
+        jTxtCodigo.setText(Jmj_Util.intToStr(jmjClientes.getJmjIdClientes()));
         jTxtNome.setText(jmjClientes.getJmjNome());
         jFmtCpf.setText(jmjClientes.getJmjCpf());
         jFmtRg.setText(jmjClientes.getJmjRg());
         jCboSexo.setSelectedIndex(jmjClientes.getJmjSexo());
-        jFmtDataNascimento.setText(Util.dateToStr(jmjClientes.getJmjDataNascimento()));
+        jFmtDataNascimento.setText(Jmj_Util.dateToStr(jmjClientes.getJmjDataNascimento()));
         jTxtEmail.setText(jmjClientes.getJmjEmail());
         jTxtTelefone.setText(jmjClientes.getJmjTelefone());
         jFmtCep.setText(jmjClientes.getJmjCep());
@@ -116,7 +116,7 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
         jTxtBairro.setText(jmjClientes.getJmjBairro());
         jTxtEndereco.setText(jmjClientes.getJmjEndereco());
         jTxtCidade.setText(jmjClientes.getJmjCidade());
-        jFmtDataCadastro.setText(Util.dateToStr(jmjClientes.getJmjDataCadastro()));
+        jFmtDataCadastro.setText(Jmj_Util.dateToStr(jmjClientes.getJmjDataCadastro()));
         jChbAtivo.setSelected(jmjClientes.getJmjAtivo() == "S");
         jTxtUf.setText(jmjClientes.getJmjUf());
     }
@@ -527,27 +527,27 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
         incluir = true;
-        Util.habilitar(true, jTxtCodigo, jTxtNome, jCboSexo, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtRg, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.habilitar(true, jTxtCodigo, jTxtNome, jCboSexo, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtRg, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
         jTxtCodigo.grabFocus();
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
         incluir = false;
-        Util.habilitar(true, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtCnpj,jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar, jFmtRg, jCboSexo);
-        Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.habilitar(true, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtCnpj,jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar, jFmtRg, jCboSexo);
+        Jmj_Util.habilitar(false, jBtnAlterar, jBtnExcluir, jBtnIncluir, jBtnPesquisar);
         jTxtNome.grabFocus();
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        if (Util.confirmar("Deseja excluir o registro?") == true) {
+        if (Jmj_Util.confirmar("Deseja excluir o registro?") == true) {
             DAO_JmjClientes JmjClientesDAO = new DAO_JmjClientes();
             JmjClientesDAO.delete(viewBean());
-            Util.habilitar(false, jBtnAlterar, jBtnExcluir);
-            Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
-            Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtCnpj, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
+            Jmj_Util.habilitar(false, jBtnAlterar, jBtnExcluir);
+            Jmj_Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+            Jmj_Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jFmtCnpj, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
         }
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
@@ -559,23 +559,23 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
         } else {
             JmjUsuariosDAO.update(viewBean());
         }
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtRg, jCboSexo, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
-        Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtRg, jCboSexo, jFmtDataCadastro, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
 
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jFmtRg, jCboSexo, jBtnConfirmar, jBtnCancelar);
-        Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
-        Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
+        Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jTxtBairro, jTxtCidade, jTxtUf, jFmtDataCadastro, jFmtRg, jCboSexo, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(true, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.limpar(jTxtCodigo, jTxtNome, jChbAtivo, jFmtCpf, jFmtCnpj, jFmtDataNascimento, jTxtEmail, jTxtTelefone, jTxtCelular, jFmtCep, jTxtEndereco, jFmtRg, jTxtCidade, jFmtDataCadastro, jTxtUf, jTxtBairro, jCboSexo);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
-        Util.habilitar(true, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
+        Jmj_Util.habilitar(true, jBtnAlterar, jBtnExcluir);
         JDlgJmj_ClientesPesquisar jDlgClientesPesquisar = new JDlgJmj_ClientesPesquisar(null, true);
         jDlgClientesPesquisar.setTelaPai(this);
         jDlgClientesPesquisar.setVisible(true);
