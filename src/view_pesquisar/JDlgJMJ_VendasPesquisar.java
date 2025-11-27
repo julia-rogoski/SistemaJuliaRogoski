@@ -6,15 +6,15 @@ package view_pesquisar;
 
 import bean.JmjVendas;
 import dao.DAO_JmjVendas;
+import view.JDlg_JmjVendas;
 import java.awt.event.ActionEvent;
 import java.util.List;
-import view.JDlg_JmjVendas;
 
 /**
  *
  * @author jumik
  */
-public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
+public class JDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
 
     private JDlg_JmjVendas jDlgJMJ_Vendas;
     ControllerJmjVendas controllerVendas;
@@ -22,7 +22,7 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
     /**
      * Creates new form jDlgVendasPesquisar
      */
-    public jDlgJMJ_VendasPesquisar(java.awt.Frame parent, boolean modal) {
+    public JDlgJMJ_VendasPesquisar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -37,6 +37,9 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
 
     public void setTelaPai(JDlg_JmjVendas jDlgJMJ_Vendas) {
          this.jDlgJMJ_Vendas = jDlgJMJ_Vendas;
+    }
+        public boolean JmjativarBotoes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -122,14 +125,18 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDlgJMJ_VendasPesquisar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -138,7 +145,7 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                jDlgJMJ_VendasPesquisar dialog = new jDlgJMJ_VendasPesquisar(new javax.swing.JFrame(), true);
+                JDlgJMJ_VendasPesquisar dialog = new JDlgJMJ_VendasPesquisar(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -155,4 +162,6 @@ public class jDlgJMJ_VendasPesquisar extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
+
+
 }

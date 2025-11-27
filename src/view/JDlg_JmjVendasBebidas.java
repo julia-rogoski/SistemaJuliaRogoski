@@ -6,6 +6,9 @@ package view;
 
 import java.util.List;
 import bean.JmjBebidas;
+import bean.JmjVendasBebidas;
+import view_pesquisar.ControllerJmjVendasBebidas;
+import view.JDlg_JmjVendas;
 import dao.DAO_JmjBebidas;
 import tools.Jmj_Util;
 
@@ -15,10 +18,11 @@ import tools.Jmj_Util;
  */
   public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
     
-    JDlgJMJ_Bebidas jDlgJMJ_Bebidas;
+    JDlg_JmjVendas jDlgJMJ_Vendas;
     
-    public void setTelaAnterior(JDlgJMJ_Bebidas jDlgJMJ_Bebidas){
-        this.jDlgJMJ_Bebidas = jDlgJMJ_Bebidas;
+    public void setTelaPai(JDlg_JmjVendas jDlgJMJ_Vendas){
+        this.jDlgJMJ_Vendas = jDlgJMJ_Vendas;
+        
     }
 
     /**
@@ -28,7 +32,7 @@ import tools.Jmj_Util;
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        Jmj_Util.habilitar(false, jTxtValorUnitario, jTxtTotal);
+        Jmj_Util.habilitar(false, jTxtPreco, jTxtTotal);
         jTxtQuantidade.setText("1");
         DAO_JmjBebidas bebidasDao = new DAO_JmjBebidas();
         List lista = (List) bebidasDao.listAll();
@@ -56,7 +60,6 @@ import tools.Jmj_Util;
         jBtnCancelar1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jTxtQunatidade = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jTxtValorUnitario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -113,7 +116,6 @@ import tools.Jmj_Util;
 
         jLabel15.setText("Total");
 
-        jBtnoK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ok.png"))); // NOI18N
         jBtnoK.setText("ok");
         jBtnoK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +123,6 @@ import tools.Jmj_Util;
             }
         });
 
-        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
         jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +151,12 @@ import tools.Jmj_Util;
 
         jLabel3.setText("Preço:");
 
+        jTxtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtPrecoActionPerformed(evt);
+            }
+        });
+
         jLabel16.setText("Bebidas:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,20 +175,20 @@ import tools.Jmj_Util;
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel15)
                             .addComponent(jLabel2)
                             .addComponent(jTxtQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                            .addComponent(jTxtTotal)))
+                            .addComponent(jTxtTotal)
+                            .addComponent(jLabel15)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addComponent(jBtnoK)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnCancelar)
                         .addGap(8, 8, 8)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +246,11 @@ import tools.Jmj_Util;
 
     private void jBtnoKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnoKActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
+        JmjVendasBebidas jmjVendaBebidas = new JmjVendasBebidas();
+        jmjVendaBebidas.setJmjBebidas((JmjBebidas) jCboBebidas.getSelectedItem());
+        jmjVendaBebidas.setJmjQuantidade(Jmj_Util.strToInt(jTxtQuantidade.getText()));
+        jmjVendaBebidas.setJmjPreco(Jmj_Util.strToDouble(jTxtPreco.getText()));
+        jDlgJMJ_Vendas.controllerJmjVendasBebidas.addBean(jmjVendaBebidas);
     }//GEN-LAST:event_jBtnoKActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
@@ -249,10 +260,6 @@ import tools.Jmj_Util;
 
     private void jTxtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtQuantidadeActionPerformed
         // TODO add your handling code here:
-        JmjBebidas bebidas = (JmjBebidas) jCboBebidas.getSelectedItem();
-        jTxtPreco.setText(Jmj_Util.doubleToStr(bebidas.getJmjPreco()));
-        int quant = Jmj_Util.strToInt(jTxtQuantidade.getText());    
-        jTxtTotal.setText(Jmj_Util.doubleToStr(quant * bebidas.getJmjPreco()));
     }//GEN-LAST:event_jTxtQuantidadeActionPerformed
 
     private void jCboBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboBebidasActionPerformed
@@ -276,6 +283,10 @@ import tools.Jmj_Util;
         }  else{ jTxtTotal.setText("0");
         }
     }//GEN-LAST:event_jTxtQuantidadeKeyReleased
+
+    private void jTxtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtPrecoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,7 +414,6 @@ import tools.Jmj_Util;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jTxtPreco;
     private javax.swing.JTextField jTxtQuantidade;
-    private javax.swing.JTextField jTxtQunatidade;
     private javax.swing.JTextField jTxtTotal;
     private javax.swing.JTextField jTxtTotal1;
     private javax.swing.JTextField jTxtValorUnitario;
