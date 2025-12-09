@@ -51,7 +51,7 @@ public class ControllerJmjConsultasBebidas extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "Nome";         
+            return "nome";         
         } else if ( columnIndex == 2) {
             return "Valor Unitário";
         }

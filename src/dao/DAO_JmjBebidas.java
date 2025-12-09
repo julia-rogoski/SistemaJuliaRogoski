@@ -62,7 +62,7 @@ public class DAO_JmjBebidas extends DAO_Abstract{
     public Object listNome(String nome) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjBebidas.class);
-        criteria.add(Restrictions.like("Nome", "%" + nome + "%"));
+        criteria.add(Restrictions.like("jmjNome", "%" + nome + "%"));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -71,7 +71,7 @@ public class DAO_JmjBebidas extends DAO_Abstract{
     public Object listValor(double valor) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjBebidas.class);
-        criteria.add(Restrictions.ge("Preco", valor));
+        criteria.add(Restrictions.ge("jmjPreco", valor));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;
@@ -80,8 +80,8 @@ public class DAO_JmjBebidas extends DAO_Abstract{
     public Object listNomeValor(String nome, double valor) {
         session.beginTransaction();
         Criteria criteria = session.createCriteria(JmjBebidas.class);
-        criteria.add(Restrictions.like("Nome", "%" + nome + "%"));
-        criteria.add(Restrictions.ge("Preco", valor));
+        criteria.add(Restrictions.like("jmjNome", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("jmjPreco", valor));
         List lista = criteria.list();
         session.getTransaction().commit();
         return lista;

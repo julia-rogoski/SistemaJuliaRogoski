@@ -6,7 +6,7 @@
 package view;
 import tools.Jmj_Util;
 import java.util.List;
-import bean.JmjUsuarios;
+import bean.JmjBebidas;
 import dao.DAO_JmjUsuarios;
 import dao.DAO_JmjBebidas;
 import view.JDlgJMJ_Usuarios;
@@ -31,7 +31,7 @@ public class JDlgJmj_ConsultarBebidas extends javax.swing.JDialog {
         daoJmjBebidas = new DAO_JmjBebidas();
         List lista = (List) daoJmjBebidas.listAll();
         controllerJmjConsultarBebidas.setList(lista);
-        jTable1.setModel(controllerJmjConsultarBebidas);
+        jTable2.setModel(controllerJmjConsultarBebidas);
     }
 
     /**
