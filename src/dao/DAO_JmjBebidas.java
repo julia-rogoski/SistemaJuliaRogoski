@@ -59,6 +59,33 @@ public class DAO_JmjBebidas extends DAO_Abstract{
         session.getTransaction().commit();    
         return lista;
     }
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjBebidas.class);
+        criteria.add(Restrictions.like("Nome", "%" + nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+        
+    public Object listValor(double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjBebidas.class);
+        criteria.add(Restrictions.ge("Preco", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listNomeValor(String nome, double valor) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjBebidas.class);
+        criteria.add(Restrictions.like("Nome", "%" + nome + "%"));
+        criteria.add(Restrictions.ge("Preco", valor));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
     
     public static void main(String[] args) {
         DAO_JmjBebidas dAO_JmjBebidas = new DAO_JmjBebidas();
