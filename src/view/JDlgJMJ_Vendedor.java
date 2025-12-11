@@ -26,7 +26,7 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     public JDlgJMJ_Vendedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setTitle("Cadastro de Usuários");
+        setTitle("Cadastro de Vendedor");
         setLocationRelativeTo(null);
         Jmj_Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtApelido, jFmtCpf, jTxtEmail, jTxtTelefone, jTxtCelular, jChbAtivo, jBtnAlterar, jBtnCancelar, jBtnConfirmar, jBtnExcluir);
     }
