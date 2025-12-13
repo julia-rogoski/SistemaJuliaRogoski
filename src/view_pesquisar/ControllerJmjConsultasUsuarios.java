@@ -4,7 +4,7 @@
  */
 package view_pesquisar;
 
-import bean.JmjBebidas;
+import bean.JmjUsuarios;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,16 +15,16 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjConsultasUsuarios extends AbstractTableModel {
 
-    private List lstProdutos;
+    private List lstUsuarios;
 
-    public void setList(List lstProdutos) {
-        this.lstProdutos = lstProdutos;
+    public void setList(List lstUsuarios) {
+        this.lstUsuarios = lstUsuarios;
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstProdutos.size();
+        return lstUsuarios.size();
                 
     }
 
@@ -35,13 +35,13 @@ public class ControllerJmjConsultasUsuarios extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjBebidas jmjBebidas = (JmjBebidas) lstProdutos.get( rowIndex);
+        JmjUsuarios jmjUsuarios = (JmjUsuarios) lstUsuarios.get( rowIndex);
         if ( columnIndex == 0 ){
-            return jmjBebidas.getJmjIdBebidas();
+            return jmjUsuarios.getJmjIdUsuarios();
         } else if (columnIndex ==1) {
-            return jmjBebidas.getJmjNome();        
+            return jmjUsuarios.getJmjNome();        
         } else if (columnIndex ==2) {
-            return jmjBebidas.getJmjPreco();
+            return jmjUsuarios.getJmjCpf();
         } 
         return "";
     }
@@ -53,7 +53,7 @@ public class ControllerJmjConsultasUsuarios extends AbstractTableModel {
         } else if ( columnIndex == 1) {
             return "nome";         
         } else if ( columnIndex == 2) {
-            return "Valor Unitário";
+            return "Cpf";
         }
         return "";
     }

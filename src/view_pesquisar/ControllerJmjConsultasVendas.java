@@ -4,7 +4,7 @@
  */
 package view_pesquisar;
 
-import bean.JmjBebidas;
+import bean.JmjVendas;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,16 +15,16 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ControllerJmjConsultasVendas extends AbstractTableModel {
 
-    private List lstProdutos;
+    private List lstVendas;
 
-    public void setList(List lstProdutos) {
-        this.lstProdutos = lstProdutos;
+    public void setList(List lstVendas) {
+        this.lstVendas = lstVendas;
         this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return lstProdutos.size();
+        return lstVendas.size();
                 
     }
 
@@ -35,13 +35,13 @@ public class ControllerJmjConsultasVendas extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        JmjBebidas jmjBebidas = (JmjBebidas) lstProdutos.get( rowIndex);
+        JmjVendas jmjVendas = (JmjVendas) lstVendas.get( rowIndex);
         if ( columnIndex == 0 ){
-            return jmjBebidas.getJmjIdBebidas();
+            return jmjVendas.getJmjIdVendas();
         } else if (columnIndex ==1) {
-            return jmjBebidas.getJmjNome();        
+            return jmjVendas.getJmjClientes();        
         } else if (columnIndex ==2) {
-            return jmjBebidas.getJmjPreco();
+            return jmjVendas.getJmjTotalVenda();
         } 
         return "";
     }
@@ -51,9 +51,9 @@ public class ControllerJmjConsultasVendas extends AbstractTableModel {
         if ( columnIndex == 0) {
             return "Código";
         } else if ( columnIndex == 1) {
-            return "nome";         
+            return "cliente";         
         } else if ( columnIndex == 2) {
-            return "Valor Unitário";
+            return "Total";
         }
         return "";
     }
