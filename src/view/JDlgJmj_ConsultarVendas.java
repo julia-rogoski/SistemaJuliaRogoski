@@ -9,16 +9,18 @@ import java.util.List;
 import bean.JmjBebidas;
 import dao.DAO_JmjUsuarios;
 import dao.DAO_JmjBebidas;
+import dao.DAO_JmjVendas;
 import view.JDlgJMJ_Usuarios;
 import view_pesquisar.ControllerJmjConsultasBebidas;
+import view_pesquisar.ControllerJmjConsultasVendas;
 /**
  *
  * @author u09208193110
  */
 public class JDlgJmj_ConsultarVendas extends javax.swing.JDialog {
     
-    ControllerJmjConsultasBebidas controllerJmjConsultarBebidas;
-    DAO_JmjBebidas daoJmjBebidas;
+    ControllerJmjConsultasVendas controllerJmjConsultasVendas;
+    DAO_JmjVendas daoJmjVendas;
     /**
      * Creates new form JDlgJmj_ConsultarProdutos
      */
@@ -27,11 +29,11 @@ public class JDlgJmj_ConsultarVendas extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Consulta Bebidas");
-        controllerJmjConsultarBebidas = new ControllerJmjConsultasBebidas();
-        daoJmjBebidas = new DAO_JmjBebidas();
-        List lista = (List) daoJmjBebidas.listAll();
-        controllerJmjConsultarBebidas.setList(lista);
-        jTable2.setModel(controllerJmjConsultarBebidas);
+        controllerJmjConsultasVendas = new ControllerJmjConsultasVendas();
+        daoJmjVendas = new DAO_JmjVendas();
+        List lista = (List) daoJmjVendas.listAll();
+        controllerJmjConsultasVendas.setList(lista);
+        jTable2.setModel(controllerJmjConsultasVendas);
     }
 
     /**
@@ -115,9 +117,9 @@ public class JDlgJmj_ConsultarVendas extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Nome");
+        jLabel1.setText("Cliente:");
 
-        jLabel3.setText("Valor:");
+        jLabel3.setText("Total da Venda:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,27 +199,27 @@ public class JDlgJmj_ConsultarVendas extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (!jTxtValor.getText().isEmpty() && !jTxtNome.getText().isEmpty()) {
             String nome = jTxtNome.getText();
-            double valor = Jmj_Util.strToDouble(jTxtValor.getText());
+            double total = Jmj_Util.strToDouble(jTxtValor.getText());
 
-            List listaNomeValor = (List) daoJmjBebidas.listNomeValor(nome, valor);
-            controllerJmjConsultarBebidas.setList(listaNomeValor);
+            List listaNomeValor = (List) daoJmjVendas.listClienteTotal(nome, total);
+            controllerJmjConsultasVendas.setList(listaNomeValor);
 
         } else if (!jTxtNome.getText().isEmpty()) {
-            String nome = jTxtNome.getText();
+            String cliente = jTxtNome.getText();
 
-            List listaNome = (List) daoJmjBebidas.listNome(nome);
-            controllerJmjConsultarBebidas.setList(listaNome);
+            List listaCliente = (List) daoJmjVendas.listCliente(cliente);
+            controllerJmjConsultasVendas.setList(listaCliente);
 
         } else if (!jTxtValor.getText().isEmpty()){
-            double valor = Jmj_Util.strToDouble(jTxtValor.getText());
+            double total = Jmj_Util.strToDouble(jTxtValor.getText());
 
-            List listaValor = (List) daoJmjBebidas.listValor(valor);
-            controllerJmjConsultarBebidas.setList(listaValor);
+            List listaTotal = (List) daoJmjVendas.listTotal(total);
+            controllerJmjConsultasVendas.setList(listaTotal);
 
         } else {
 
-            List lista = (List) daoJmjBebidas.listAll();
-            controllerJmjConsultarBebidas.setList(lista);
+            List lista = (List) daoJmjVendas.listAll();
+            controllerJmjConsultasVendas.setList(lista);
         }
 
     }//GEN-LAST:event_jBtnConsultaActionPerformed

@@ -50,6 +50,34 @@ public class DAO_JmjUsuarios extends DAO_Abstract{
         session.getTransaction().commit();    
         return lista;
     }
+    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjUsuarios.class);
+        criteria.add(Restrictions.like("jmjNome", "%" +  nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
+    
+    public Object listCpf(String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjUsuarios.class);
+        criteria.add(Restrictions.eq("jmjCpf", cpf));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
+    
+    public Object listNomeCpf(String nome, String cpf) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjUsuarios.class);
+        criteria.add(Restrictions.eq("jmjCpf", cpf));
+        criteria.add(Restrictions.like("jmjNome", "%" +  nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
 
     @Override
     public Object listAll() {

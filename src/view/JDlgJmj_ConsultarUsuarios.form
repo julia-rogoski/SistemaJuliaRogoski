@@ -77,7 +77,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Component id="jTxtValor" min="-2" pref="261" max="-2" attributes="0"/>
+                              <Component id="jTxtCpf" min="-2" pref="261" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jBtnConsulta" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -107,7 +107,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTxtValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTxtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBtnConsulta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jTxtNome" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -164,7 +164,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTxtNome">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTxtValor">
+    <Component class="javax.swing.JTextField" name="jTxtCpf">
     </Component>
     <Component class="javax.swing.JButton" name="jBtnConsulta">
       <Properties>
@@ -181,7 +181,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor:"/>
+        <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
   </SubComponents>

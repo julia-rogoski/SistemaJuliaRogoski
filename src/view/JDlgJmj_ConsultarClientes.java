@@ -114,7 +114,7 @@ public class JDlgJmj_ConsultarClientes extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel3.setText("Cidade");
+        jLabel3.setText("Cidade:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,10 +192,10 @@ public class JDlgJmj_ConsultarClientes extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (!jTxtCidade.getText().isEmpty() && !jTxtNome.getText().isEmpty()) {
             String nome = jTxtNome.getText();
-            double valor = Jmj_Util.strToDouble(jTxtCidade.getText());
+            String cidade = jTxtCidade.getText();
 
-            List listaNomeValor = (List) daoJmjClientes.listNomeValor(nome, valor);
-            controllerJmjConsultarClientes.setList(listaNomeValor);
+            List listaNomeCidade = (List) daoJmjClientes.listNomeCidade(nome, cidade);
+            controllerJmjConsultarClientes.setList(listaNomeCidade);
 
         } else if (!jTxtNome.getText().isEmpty()) {
             String nome = jTxtNome.getText();
@@ -204,10 +204,10 @@ public class JDlgJmj_ConsultarClientes extends javax.swing.JDialog {
             controllerJmjConsultarClientes.setList(listaNome);
 
         } else if (!jTxtCidade.getText().isEmpty()){
-            double valor = Jmj_Util.strToDouble(jTxtCidade.getText());
+            String cidade = jTxtCidade.getText();
 
-            List listaValor = (List) daoJmjClientes.listValor(valor);
-            controllerJmjConsultarClientes.setList(listaValor);
+            List listaCidade = (List) daoJmjClientes.listCidade(cidade);
+            controllerJmjConsultarClientes.setList(listaCidade);
 
         } else {
 

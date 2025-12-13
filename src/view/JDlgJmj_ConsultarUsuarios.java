@@ -11,14 +11,15 @@ import dao.DAO_JmjUsuarios;
 import dao.DAO_JmjBebidas;
 import view.JDlgJMJ_Usuarios;
 import view_pesquisar.ControllerJmjConsultasBebidas;
+import view_pesquisar.ControllerJmjConsultasUsuarios;
 /**
  *
  * @author u09208193110
  */
 public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
     
-    ControllerJmjConsultasBebidas controllerJmjConsultarBebidas;
-    DAO_JmjBebidas daoJmjBebidas;
+    ControllerJmjConsultasUsuarios controllerJmjConsultasUsuarios;
+    DAO_JmjUsuarios daoJmjUsuarios;
     /**
      * Creates new form JDlgJmj_ConsultarProdutos
      */
@@ -27,11 +28,11 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Consulta Bebidas");
-        controllerJmjConsultarBebidas = new ControllerJmjConsultasBebidas();
-        daoJmjBebidas = new DAO_JmjBebidas();
-        List lista = (List) daoJmjBebidas.listAll();
-        controllerJmjConsultarBebidas.setList(lista);
-        jTable2.setModel(controllerJmjConsultarBebidas);
+        controllerJmjConsultasUsuarios = new ControllerJmjConsultasUsuarios();
+        daoJmjUsuarios = new DAO_JmjUsuarios();
+        List lista = (List) daoJmjUsuarios.listAll();
+        controllerJmjConsultasUsuarios.setList(lista);
+        jTable2.setModel(controllerJmjConsultasUsuarios);
     }
 
     /**
@@ -52,7 +53,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
         jTable2 = new javax.swing.JTable();
         jBtnOk = new javax.swing.JButton();
         jTxtNome = new javax.swing.JTextField();
-        jTxtValor = new javax.swing.JTextField();
+        jTxtCpf = new javax.swing.JTextField();
         jBtnConsulta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -117,7 +118,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel3.setText("Valor:");
+        jLabel3.setText("CPF:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +140,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(jTxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jBtnConsulta))
                             .addGroup(layout.createSequentialGroup()
@@ -160,7 +161,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBtnConsulta))
                     .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -195,29 +196,29 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
 
     private void jBtnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConsultaActionPerformed
         // TODO add your handling code here:
-        if (!jTxtValor.getText().isEmpty() && !jTxtNome.getText().isEmpty()) {
+        if (!jTxtCpf.getText().isEmpty() && !jTxtNome.getText().isEmpty()) {
             String nome = jTxtNome.getText();
-            double valor = Jmj_Util.strToDouble(jTxtValor.getText());
+            String cpf = jTxtCpf.getText();
 
-            List listaNomeValor = (List) daoJmjBebidas.listNomeValor(nome, valor);
-            controllerJmjConsultarBebidas.setList(listaNomeValor);
+            List listaNomeCpf = (List) daoJmjUsuarios.listNomeCpf(nome, cpf);
+            controllerJmjConsultasUsuarios.setList(listaNomeCpf);
 
         } else if (!jTxtNome.getText().isEmpty()) {
             String nome = jTxtNome.getText();
 
-            List listaNome = (List) daoJmjBebidas.listNome(nome);
-            controllerJmjConsultarBebidas.setList(listaNome);
+            List listaNome = (List) daoJmjUsuarios.listNome(nome);
+            controllerJmjConsultasUsuarios.setList(listaNome);
 
-        } else if (!jTxtValor.getText().isEmpty()){
-            double valor = Jmj_Util.strToDouble(jTxtValor.getText());
+        } else if (!jTxtCpf.getText().isEmpty()){
+            String cpf =jTxtCpf.getText();
 
-            List listaValor = (List) daoJmjBebidas.listValor(valor);
-            controllerJmjConsultarBebidas.setList(listaValor);
+            List listaCpf = (List) daoJmjUsuarios.listCpf(cpf);
+            controllerJmjConsultasUsuarios.setList(listaCpf);
 
         } else {
 
-            List lista = (List) daoJmjBebidas.listAll();
-            controllerJmjConsultarBebidas.setList(lista);
+            List lista = (List) daoJmjUsuarios.listAll();
+            controllerJmjConsultasUsuarios.setList(lista);
         }
 
     }//GEN-LAST:event_jBtnConsultaActionPerformed
@@ -283,7 +284,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTxtCpf;
     private javax.swing.JTextField jTxtNome;
-    private javax.swing.JTextField jTxtValor;
     // End of variables declaration//GEN-END:variables
 }

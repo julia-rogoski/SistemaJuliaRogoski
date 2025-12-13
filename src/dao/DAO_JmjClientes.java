@@ -50,6 +50,34 @@ public class DAO_JmjClientes extends DAO_Abstract{
         session.getTransaction().commit();    
         return lista;
     }
+    
+    public Object listCidade(String cidade) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjClientes.class);
+        criteria.add(Restrictions.like("jmjCidade", "%" +  cidade + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
+    
+    public Object listNome(String nome) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjClientes.class);
+        criteria.add(Restrictions.like("jmjNome", "%" +  nome + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
+    
+    public Object listNomeCidade(String nome, String cidade) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjClientes.class);
+        criteria.add(Restrictions.like("jmjNome", "%" +  nome + "%"));
+        criteria.add(Restrictions.like("jmjCidade", "%" +  cidade + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
 
     @Override
     public Object listAll() {

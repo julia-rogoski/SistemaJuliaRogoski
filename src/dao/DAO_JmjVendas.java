@@ -50,6 +50,34 @@ public class DAO_JmjVendas extends DAO_Abstract{
         session.getTransaction().commit();    
         return lista;
     }
+    
+    public Object listCliente(String cliente) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjVendas.class).createAlias("jmjClientes", "clientes"); 
+        criteria.add(Restrictions.like("clientes.jmjNome", "%" + cliente + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
+    
+    public Object listTotal(double total) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjVendas.class);
+        criteria.add(Restrictions.ge("jmjTotalVenda", total));
+        List lista = criteria.list();
+        session.getTransaction().commit();    
+        return lista;
+    }
+    
+    public Object listClienteTotal(String cliente, double total) {
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(JmjVendas.class).createAlias("jmjClientes", "clientes"); 
+        criteria.add(Restrictions.ge("jmjTotalVenda", total));
+        criteria.add(Restrictions.like("clientes.jmjNome", "%" + cliente + "%"));
+        List lista = criteria.list();
+        session.getTransaction().commit();
+        return lista;
+    }
 
     @Override
     public Object listAll() {

@@ -117,7 +117,7 @@ public class JDlgJmj_ConsultarBebidas extends javax.swing.JDialog {
 
         jLabel1.setText("Nome");
 
-        jLabel3.setText("Valor:");
+        jLabel3.setText("Valor maior que:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
