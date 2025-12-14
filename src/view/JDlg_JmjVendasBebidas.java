@@ -19,6 +19,7 @@ import tools.Jmj_Util;
   public class JDlg_JmjVendasBebidas extends javax.swing.JDialog {
     
     JDlg_JmjVendas jDlgJMJ_Vendas;
+    boolean incluir;
     
     public void setTelaPai(JDlg_JmjVendas jDlgJMJ_Vendas){
         this.jDlgJMJ_Vendas = jDlgJMJ_Vendas;
@@ -246,11 +247,18 @@ import tools.Jmj_Util;
 
     private void jBtnoKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnoKActionPerformed
         // TODO add your handling code here:
-        JmjVendasBebidas jmjVendaBebidas = new JmjVendasBebidas();
-        jmjVendaBebidas.setJmjBebidas((JmjBebidas) jCboBebidas.getSelectedItem());
-        jmjVendaBebidas.setJmjQuantidade(Jmj_Util.strToInt(jTxtQuantidade.getText()));
-        jmjVendaBebidas.setJmjPreco(Jmj_Util.strToDouble(jTxtPreco.getText()));
-        jDlgJMJ_Vendas.controllerJmjVendasBebidas.addBean(jmjVendaBebidas);
+        JmjVendasBebidas vendasBebidas = new JmjVendasBebidas();        
+        vendasBebidas.setJmjBebidas((JmjBebidas) jCboBebidas.getSelectedItem());
+        vendasBebidas.setJmjQuantidade(Jmj_Util.strToInt( jTxtQuantidade.getText()) );
+        vendasBebidas.setJmjPreco(Jmj_Util.strToDouble( jTxtValorUnitario.getText()) );
+        jDlgJMJ_Vendas.controllerJmjVendasBebidas.addBean(vendasBebidas);
+        if (incluir == true) {
+           jDlgJMJ_Vendas.controllerJmjVendasBebidas.addBean(vendasBebidas);
+        } else {
+            jDlgJMJ_Vendas.controllerJmjVendasBebidas.removeBean(jDlgJMJ_Vendas.getjTable1().getSelectedRow());
+            jDlgJMJ_Vendas.controllerJmjVendasBebidas.addBean(vendasBebidas);
+        }        
+        setVisible(false);
     }//GEN-LAST:event_jBtnoKActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed

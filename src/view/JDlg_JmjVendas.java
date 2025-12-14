@@ -18,6 +18,7 @@ import dao.DAO_JmjVendedor;
 import dao.DAO_JmjClientes;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import tools.Jmj_Util;
 import view_pesquisar.JDlgJMJ_VendasPesquisar;
 import view_pesquisar.ControllerJmjVendasBebidas;
@@ -89,6 +90,10 @@ public class JDlg_JmjVendas extends javax.swing.JDialog {
         jCboVendedor.setSelectedItem(JmjVendas.getJmjVendedor());
         jFmtJmjData.setText(Jmj_Util.dateToStr(JmjVendas.getJmjDataVenda()));
         jFmtJmjData.setText(Jmj_Util.doubleToStr(JmjVendas.getJmjTotalVenda()));
+    }
+    
+    public JTable getjTable1() {
+        return jTblJmj_VeBebi;
     }
 
     /**
