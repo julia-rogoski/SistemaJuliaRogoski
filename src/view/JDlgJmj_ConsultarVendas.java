@@ -28,7 +28,7 @@ public class JDlgJmj_ConsultarVendas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Consulta Bebidas");
+        setTitle("Consulta Vendas");
         controllerJmjConsultasVendas = new ControllerJmjConsultasVendas();
         daoJmjVendas = new DAO_JmjVendas();
         List lista = (List) daoJmjVendas.listAll();

@@ -23,7 +23,7 @@
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/132253_users_icon.png"/>
+                  <Image iconType="3" name="/img/icons8-grupo-de-users.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
@@ -65,7 +65,7 @@
                   <KeyStroke key="Ctrl+B"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons8-bebidas-32.png"/>
+                  <Image iconType="3" name="/img/icon_bebida.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bebidas "/>
               </Properties>
@@ -110,20 +110,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMnuVendasActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMnuVendasBebidas">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+E"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/alterar.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="VendasBebidas"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMnuVendasBebidasActionPerformed"/>
-              </Events>
-            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -151,7 +137,7 @@
                   <KeyStroke key="Shift+Ctrl+V"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/carrinho.png"/>
+                  <Image iconType="3" name="/img/icons8-carrinho-de-compras-32.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Vendas"/>
               </Properties>
@@ -165,7 +151,7 @@
                   <KeyStroke key="Shift+Ctrl+U"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/1564534_customer_man_user_account_profile_icon.png"/>
+                  <Image iconType="3" name="/img/icon_grupo_usuario.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuarios"/>
               </Properties>
@@ -179,7 +165,7 @@
                   <KeyStroke key="Shift+Ctrl+B"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/icons8-bebidas-32.png"/>
+                  <Image iconType="3" name="/img/bebidas.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Bebidas"/>
               </Properties>
@@ -251,7 +237,7 @@
         <Component class="javax.swing.JButton" name="jBtnJmjBebidas">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/icons8-bebidas-32.png"/>
+              <Image iconType="3" name="/img/icon_bebida.png"/>
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>

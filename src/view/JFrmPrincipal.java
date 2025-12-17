@@ -45,7 +45,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMnuSair = new javax.swing.JMenuItem();
         jmnuMovimento = new javax.swing.JMenu();
         jMnuVendas = new javax.swing.JMenuItem();
-        jMnuVendasBebidas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMnuJmjClientes2 = new javax.swing.JMenuItem();
         jMnuJmjVendas2 = new javax.swing.JMenuItem();
@@ -69,7 +68,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(jBtnJmjVendedor);
 
-        jBtnJmjBebidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-bebidas-32.png"))); // NOI18N
+        jBtnJmjBebidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_bebida.png"))); // NOI18N
         jBtnJmjBebidas.setFocusable(false);
         jBtnJmjBebidas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnJmjBebidas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -121,7 +120,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
 
         jMnuClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMnuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/132253_users_icon.png"))); // NOI18N
+        jMnuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-grupo-de-users.png"))); // NOI18N
         jMnuClientes.setText("Clientes");
         jMnuClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +150,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMnuCadastro.add(jMnuVendedor);
 
         jMnuBebidas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        jMnuBebidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-bebidas-32.png"))); // NOI18N
+        jMnuBebidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_bebida.png"))); // NOI18N
         jMnuBebidas.setText("Bebidas ");
         jMnuBebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,16 +184,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jmnuMovimento.add(jMnuVendas);
 
-        jMnuVendasBebidas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMnuVendasBebidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/alterar.png"))); // NOI18N
-        jMnuVendasBebidas.setText("VendasBebidas");
-        jMnuVendasBebidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMnuVendasBebidasActionPerformed(evt);
-            }
-        });
-        jmnuMovimento.add(jMnuVendasBebidas);
-
         jMenuBar1.add(jmnuMovimento);
 
         jMenu1.setText("Consultas");
@@ -210,7 +199,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuJmjClientes2);
 
         jMnuJmjVendas2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjVendas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrinho.png"))); // NOI18N
+        jMnuJmjVendas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-carrinho-de-compras-32.png"))); // NOI18N
         jMnuJmjVendas2.setText("Vendas");
         jMnuJmjVendas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,7 +209,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuJmjVendas2);
 
         jMnuJmjUsuarios2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjUsuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1564534_customer_man_user_account_profile_icon.png"))); // NOI18N
+        jMnuJmjUsuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_grupo_usuario.png"))); // NOI18N
         jMnuJmjUsuarios2.setText("Usuarios");
         jMnuJmjUsuarios2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +219,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuJmjUsuarios2);
 
         jMnuJmjBebidas2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjBebidas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-bebidas-32.png"))); // NOI18N
+        jMnuJmjBebidas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bebidas.png"))); // NOI18N
         jMnuJmjBebidas2.setText("Bebidas");
         jMnuJmjBebidas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,12 +269,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         JDlgJMJ_Bebidas jDlgJMJ_Bebidas = new JDlgJMJ_Bebidas(this, true);
         jDlgJMJ_Bebidas.setVisible(true);
     }//GEN-LAST:event_jMnuBebidasActionPerformed
-
-    private void jMnuVendasBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendasBebidasActionPerformed
-        // TODO add your handling code here:
-        JDlg_JmjVendasBebidas jDlgVendasBebidas = new JDlg_JmjVendasBebidas(this, true);
-        jDlgVendasBebidas.setVisible(true);
-    }//GEN-LAST:event_jMnuVendasBebidasActionPerformed
 
     private void jMnuVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuVendedorActionPerformed
         // TODO add your handling code here:
@@ -407,7 +390,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMnuSair;
     private javax.swing.JMenuItem jMnuUsuarios;
     private javax.swing.JMenuItem jMnuVendas;
-    private javax.swing.JMenuItem jMnuVendasBebidas;
     private javax.swing.JMenuItem jMnuVendedor;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;

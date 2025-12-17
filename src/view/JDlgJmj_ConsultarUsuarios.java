@@ -27,7 +27,7 @@ public class JDlgJmj_ConsultarUsuarios extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Consulta Bebidas");
+        setTitle("Consulta Usuário");
         controllerJmjConsultasUsuarios = new ControllerJmjConsultasUsuarios();
         daoJmjUsuarios = new DAO_JmjUsuarios();
         List lista = (List) daoJmjUsuarios.listAll();
