@@ -117,7 +117,7 @@ public class JDlgJMJ_Clientes extends javax.swing.JDialog {
         jTxtEndereco.setText(jmjClientes.getJmjEndereco());
         jTxtCidade.setText(jmjClientes.getJmjCidade());
         jFmtDataCadastro.setText(Jmj_Util.dateToStr(jmjClientes.getJmjDataCadastro()));
-        jChbAtivo.setSelected(jmjClientes.getJmjAtivo() == "S");
+        jChbAtivo.setSelected("S".equals(jmjClientes.getJmjAtivo()));
         jTxtUf.setText(jmjClientes.getJmjUf());
     }
 

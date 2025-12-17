@@ -29,28 +29,30 @@ public class JDlgJMJ_Bebidas extends javax.swing.JDialog {
 
     }
 
-public JmjBebidas viewBean() {
-    // Coleta os dados do formulário
-    int codigo = Jmj_Util.strToInt(jTxtCodigo.getText());
-    String nome = jTxtNome.getText();
-    int tipo = jCboTipo.getSelectedIndex();
-    double preco = Jmj_Util.strToDouble(jTxtPreco.getText());
-    String fabricante = jTxtFabricante.getText();
-    String teorAlcoolico = jTxtTeorAlcoolico.getText();
-    String volumeMl = jTxtVolume.getText();
-    String ativo = jChbAtivo.isSelected() ? "S" : "N";
-    JmjBebidas bebidas = new JmjBebidas();
-    return bebidas;}
+    public JmjBebidas viewBean() {
+        JmjBebidas bebidas = new JmjBebidas();
 
-    public void beanView(JmjBebidas JmjBebidas) {
-        jTxtCodigo.setText(Jmj_Util.intToStr(JmjBebidas.getJmjIdBebidas()));
-        jTxtNome.setText(JmjBebidas.getJmjNome());
-        jCboTipo.setSelectedIndex(JmjBebidas.getJmjTipo());
-        jTxtPreco.setText(Jmj_Util.doubleToStr(JmjBebidas.getJmjPreco()));
-        jTxtFabricante.setText(JmjBebidas.getJmjFabricante());
-        jTxtTeorAlcoolico.setText(JmjBebidas.getJmjTeorAlcoolico());
-        jTxtVolume.setText(JmjBebidas.getJmjVolumeMl());
-        jChbAtivo.setSelected(JmjBebidas.getJmjAtivo() == "S");
+        bebidas.setJmjIdBebidas(Jmj_Util.strToInt(jTxtCodigo.getText()));
+        bebidas.setJmjNome(jTxtNome.getText());
+        bebidas.setJmjTipo(jCboTipo.getSelectedIndex());
+        bebidas.setJmjPreco(Jmj_Util.strToDouble(jTxtPreco.getText()));
+        bebidas.setJmjFabricante(jTxtFabricante.getText());
+        bebidas.setJmjTeorAlcoolico(jTxtTeorAlcoolico.getText());
+        bebidas.setJmjVolumeMl(jTxtVolume.getText());
+        bebidas.setJmjAtivo(jChbAtivo.isSelected() ? "S" : "N");
+
+        return bebidas;
+    }
+
+    public void beanView(JmjBebidas bebidas) {
+        jTxtCodigo.setText(Jmj_Util.intToStr(bebidas.getJmjIdBebidas()));
+        jTxtNome.setText(bebidas.getJmjNome());
+        jCboTipo.setSelectedIndex(bebidas.getJmjTipo());
+        jTxtPreco.setText(Jmj_Util.doubleToStr(bebidas.getJmjPreco()));
+        jTxtFabricante.setText(bebidas.getJmjFabricante());
+        jTxtTeorAlcoolico.setText(bebidas.getJmjTeorAlcoolico());
+        jTxtVolume.setText(bebidas.getJmjVolumeMl());
+        jChbAtivo.setSelected("S".equals(bebidas.getJmjAtivo()));
     }
 
     /**
@@ -316,8 +318,8 @@ public JmjBebidas viewBean() {
 
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
-        Jmj_Util.habilitar(true, jBtnAlterar, jBtnExcluir);
-        Jmj_Util.habilitar(false, jBtnIncluir, jBtnPesquisar, jBtnConfirmar, jBtnCancelar);
+        Jmj_Util.habilitar(true, jBtnCancelar, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(false, jBtnIncluir, jBtnPesquisar, jBtnConfirmar);
         jDlgJMJ_BebidasPesquisar jMJ_BebidasPesquisar = new jDlgJMJ_BebidasPesquisar(null, true);
         jMJ_BebidasPesquisar.setTelaPai(this);
         jMJ_BebidasPesquisar.setVisible(true);

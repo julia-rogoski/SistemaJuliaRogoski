@@ -78,6 +78,19 @@ public class DAO_JmjUsuarios extends DAO_Abstract{
         session.getTransaction().commit();    
         return lista;
     }
+    
+    public Object listLogin(String username, String senha) {
+        session.beginTransaction();
+
+        Criteria criteria = session.createCriteria(JmjUsuarios.class);
+        criteria.add(Restrictions.eq("jmjApelido", username));
+        criteria.add(Restrictions.eq("jmjSenha", senha));
+
+        JmjUsuarios usuario = (JmjUsuarios) criteria.uniqueResult();
+
+        session.getTransaction().commit();
+        return usuario;
+    }
 
     @Override
     public Object listAll() {

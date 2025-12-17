@@ -17,7 +17,7 @@ public class ControllerJmjVendedor extends AbstractTableModel {
     private List<JmjVendedor> lstVendedor;
     
     public void setList(List lista) {
-        this.lstVendedor = lstVendedor;
+        this.lstVendedor = lista;
         fireTableDataChanged();
     }
     
