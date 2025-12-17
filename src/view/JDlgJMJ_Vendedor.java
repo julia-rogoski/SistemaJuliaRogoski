@@ -359,7 +359,7 @@ public class JDlgJMJ_Vendedor extends javax.swing.JDialog {
     private void jBtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisarActionPerformed
         // TODO add your handling code here:
         Jmj_Util.habilitar(false, jBtnIncluir, jBtnPesquisar);
-        Jmj_Util.habilitar(true, jBtnAlterar, jBtnExcluir);
+        Jmj_Util.habilitar(true, jBtnCancelar, jBtnAlterar, jBtnExcluir);
         JDlgJmj_VendedorPesquisar jDlgJMJ_VendedorPesquisar = new JDlgJmj_VendedorPesquisar(null, true);
         jDlgJMJ_VendedorPesquisar.setTelaPai(this);
         jDlgJMJ_VendedorPesquisar.setVisible(true);

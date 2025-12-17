@@ -90,7 +90,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(jBtnJmjVendas);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1564534_customer_man_user_account_profile_icon.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-primeiro-plano-do-grupo-selecionado-32.png"))); // NOI18N
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -101,7 +101,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton5);
 
-        jBtnJmjClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/132253_users_icon.png"))); // NOI18N
+        jBtnJmjClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-clientes-32.png"))); // NOI18N
         jBtnJmjClientes.setFocusable(false);
         jBtnJmjClientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnJmjClientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -120,7 +120,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
 
         jMnuClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        jMnuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-grupo-de-users.png"))); // NOI18N
+        jMnuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/132253_users_icon.png"))); // NOI18N
         jMnuClientes.setText("Clientes");
         jMnuClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +189,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Consultas");
 
         jMnuJmjClientes2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjClientes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/132253_users_icon.png"))); // NOI18N
+        jMnuJmjClientes2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-clientes-32.png"))); // NOI18N
         jMnuJmjClientes2.setText("Clientes");
         jMnuJmjClientes2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +209,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuJmjVendas2);
 
         jMnuJmjUsuarios2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjUsuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_grupo_usuario.png"))); // NOI18N
+        jMnuJmjUsuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-primeiro-plano-do-grupo-selecionado-32.png"))); // NOI18N
         jMnuJmjUsuarios2.setText("Usuarios");
         jMnuJmjUsuarios2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +219,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMnuJmjUsuarios2);
 
         jMnuJmjBebidas2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMnuJmjBebidas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bebidas.png"))); // NOI18N
+        jMnuJmjBebidas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-bebidas-32.png"))); // NOI18N
         jMnuJmjBebidas2.setText("Bebidas");
         jMnuJmjBebidas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,8 +366,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrmPrincipal().setVisible(true);
-            }
+            JDlgJMJ_Login login = new JDlgJMJ_Login(null, true);
+            login.setVisible(true); 
+        }
         });
     }
 
